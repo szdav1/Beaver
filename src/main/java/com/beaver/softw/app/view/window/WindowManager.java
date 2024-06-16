@@ -7,7 +7,7 @@ public final class WindowManager {
 	private WindowManager() {
 	}
 
-	public static void init(final Window window) {
+	static void init(final Window window) {
 		if (initialized)
 			return;
 

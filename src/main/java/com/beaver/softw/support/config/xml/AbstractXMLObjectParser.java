@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import com.beaver.softw.app.view.dialog.ErrorDialog;
+import com.beaver.softw.app.view.dialog.ErrorDialogTitle;
 import com.beaver.softw.support.util.ResourceHandler;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -54,7 +56,7 @@ public abstract class AbstractXMLObjectParser {
 			}
 		}
 		catch (Exception exc) {
-			exc.printStackTrace();
+			ErrorDialog.display(ErrorDialogTitle.XML_RESOURCE_ERROR, exc);
 		}
 	}
 }

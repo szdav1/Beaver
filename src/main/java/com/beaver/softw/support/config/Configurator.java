@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import javax.swing.UIManager;
 
+import com.beaver.softw.app.view.dialog.ErrorDialog;
+import com.beaver.softw.app.view.dialog.ErrorDialogTitle;
 import com.beaver.softw.support.config.xml.LanguageReader;
 import com.beaver.softw.support.config.xml.SettingsReader;
 
@@ -18,7 +20,7 @@ public final class Configurator {
 			UIManager.setLookAndFeel(settings.get("LookAndFeel"));
 		}
 		catch (Exception exc) {
-			exc.printStackTrace();
+			ErrorDialog.display(ErrorDialogTitle.XML_RESOURCE_ERROR, exc);
 		}
 	}
 

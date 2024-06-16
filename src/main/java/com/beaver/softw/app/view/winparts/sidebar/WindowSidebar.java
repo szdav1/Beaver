@@ -3,10 +3,7 @@ package com.beaver.softw.app.view.winparts.sidebar;
 import java.awt.FlowLayout;
 import java.io.File;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTree;
-import javax.swing.ScrollPaneConstants;
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.beaver.softw.app.view.window.WindowManager;
@@ -16,6 +13,7 @@ import com.beaver.softw.support.appdata.Dimensions;
 public final class WindowSidebar extends JPanel implements WindowPart {
 	private JTree projectTree;
 	private final JScrollPane scrollPane;
+	private final JFileChooser fileChooser;
 
 	public WindowSidebar() {
 		this.scrollPane = new JScrollPane(this.projectTree);
@@ -23,7 +21,11 @@ public final class WindowSidebar extends JPanel implements WindowPart {
 		this.scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		this.scrollPane.setPreferredSize(Dimensions.SIDEBAR_DIMENSION);
 
-		this.constructTreeStructure("D:\\projects\\Beaver");
+		this.fileChooser = new JFileChooser();
+		this.fileChooser.setDialogTitle("");
+		this.fileChooser.setMultiSelectionEnabled(false);
+		this.fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
 		this.setup();
 		this.add(this.scrollPane);
 	}
@@ -41,8 +43,9 @@ public final class WindowSidebar extends JPanel implements WindowPart {
 		}
 	}
 
-	private void constructTreeStructure(final String filePath) {
-		File rootFile = new File(filePath);
+	public void constructTreeStructure() {
+		this.fileChooser.showOpenDialog(null);
+		File rootFile = this.fileChooser.getSelectedFile();
 
 		if (!rootFile.isDirectory() || !rootFile.exists())
 			return;
