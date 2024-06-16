@@ -12,13 +12,19 @@ public final class Window extends AbstractWindow {
 
 	public Window(Image image, String title) {
 		super(image, title);
+		WindowManager.init(this);
+		
 		this.windowMenuBar = new WindowMenuBar();
 		this.windowSidebar = new WindowSidebar();
 
+		this.constructWindowStructure();
+		this.setVisible(true);
+		this.repaint();
+	}
+
+	private void constructWindowStructure() {
 		this.setJMenuBar(this.windowMenuBar);
 		this.addnr(this.windowSidebar, BorderLayout.WEST);
 		this.pack();
-		this.setVisible(true);
-		this.repaint();
 	}
 }

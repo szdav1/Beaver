@@ -18,7 +18,7 @@ public final class Dimensions {
 	public static final int MENU_HEIGHT = ph.calculate(2, 'h');
 	public static final Dimension MENU_DIMENSION = new Dimension(MENU_WIDTH, MENU_HEIGHT);
 
-	public static final int SIDEBAR_WIDTH = ph.calculate(10);
+	public static final int SIDEBAR_WIDTH = ph.calculate(12);
 	public static final int SIDEBAR_HEIGHT = WINDOW_HEIGHT;
 	public static final Dimension SIDEBAR_DIMENSION = new Dimension(SIDEBAR_WIDTH, SIDEBAR_HEIGHT);
 

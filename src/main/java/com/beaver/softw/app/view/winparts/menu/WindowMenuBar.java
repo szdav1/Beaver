@@ -8,9 +8,9 @@ import com.beaver.softw.support.appdata.Dimensions;
 public final class WindowMenuBar extends JMenuBar implements WindowPart {
 	public WindowMenuBar() {
 		new WindowMenuBuilder(this)
-			.addMenus("File", "Settings")
-			.addMenuItems(0, "Open")
-			.addMenuItems(1, "Appearance");
+			.addMenus("MenuBar.FileMenu", "MenuBar.SettingsMenu")
+			.addMenuItems(0, "MenuBar.FileMenuOpen")
+			.addMenuItems(1, "MenuBar.SettingsMenuAppearance");
 
 		this.setup();
 	}

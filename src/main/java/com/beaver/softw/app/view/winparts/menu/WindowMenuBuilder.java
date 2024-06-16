@@ -3,6 +3,7 @@ package com.beaver.softw.app.view.winparts.menu;
 import javax.swing.JMenu;
 
 import com.beaver.softw.app.control.AbstractController;
+import com.beaver.softw.support.config.Language;
 import com.beaver.softw.support.util.Util;
 
 public final class WindowMenuBuilder {
@@ -21,7 +22,7 @@ public final class WindowMenuBuilder {
 
 	public WindowMenuBuilder addMenus(final String... menuTitles) {
 		for (String menuTitle : menuTitles) {
-			JMenu m = new JMenu(menuTitle);
+			JMenu m = new JMenu(Language.get(menuTitle));
 			this.windowMenuBar.add(m);
 		}
 
@@ -35,7 +36,7 @@ public final class WindowMenuBuilder {
 			return this;
 
 		for (int i = 0; i < menuItemTitles.length; i++) {
-			WindowMenuItem wmi = new WindowMenuItem(menuItemTitles[i], menuIndex, i);
+			WindowMenuItem wmi = new WindowMenuItem(Language.get(menuItemTitles[i]), menuIndex, i);
 			wmi.addActionListener(this.controller);
 			m.add(wmi);
 		}
