@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Language>
+    <Words user="MenuBar">
+        <FileMenu>File</FileMenu>
+        <FileMenuOpen>Open</FileMenuOpen>
+
+        <SettingsMenu>Settings</SettingsMenu>
+        <SettingsMenuAppearance>Appearance</SettingsMenuAppearance>
+    </Words>
+</Language>
