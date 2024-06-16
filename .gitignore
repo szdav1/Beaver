@@ -1,0 +1,6 @@
+# Project Exclude Paths
+/.gradle/
+/.idea/
+/build/
+/gradle/
+/Beaver.iml
