@@ -1,15 +1,16 @@
 package com.beaver.softw.app.view.window;
 
-import java.awt.BorderLayout;
 import java.awt.Image;
 
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
+import com.beaver.softw.app.view.winparts.display.DisplayPane;
 import com.beaver.softw.app.view.winparts.menu.WindowMenuBar;
 import com.beaver.softw.app.view.winparts.sidebar.WindowSidebar;
 
 public final class Window extends AbstractWindow {
 	private final WindowMenuBar windowMenuBar;
 	private final WindowSidebar windowSidebar;
+	private final DisplayPane displayPane;
 
 	public Window(Image image, String title) {
 		super(image, title);
@@ -19,6 +20,9 @@ public final class Window extends AbstractWindow {
 		this.windowMenuBar = new WindowMenuBar();
 		this.windowSidebar = new WindowSidebar();
 
+		this.displayPane = new DisplayPane();
+		this.displayPane.setLeftComponent(this.windowSidebar);
+
 		this.constructWindowStructure();
 		this.setVisible(true);
 		this.repaint();
@@ -26,7 +30,7 @@ public final class Window extends AbstractWindow {
 
 	private void constructWindowStructure() {
 		this.setJMenuBar(this.windowMenuBar);
-		this.addnr(this.windowSidebar, BorderLayout.WEST);
+		this.add(this.displayPane);
 		this.pack();
 	}
 }

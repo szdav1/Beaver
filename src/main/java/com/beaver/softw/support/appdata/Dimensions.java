@@ -13,6 +13,7 @@ public final class Dimensions {
 
 	public static final int WINDOW_WIDTH = ph.calculate(55);
 	public static final int WINDOW_HEIGHT = ph.calculate(55, 'h');
+	public static final Dimension WINDOW_DIMENSION = new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	public static final int MENU_WIDTH = WINDOW_WIDTH;
 	public static final int MENU_HEIGHT = ph.calculate(2, 'h');

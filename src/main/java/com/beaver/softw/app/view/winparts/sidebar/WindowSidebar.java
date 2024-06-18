@@ -1,6 +1,6 @@
 package com.beaver.softw.app.view.winparts.sidebar;
 
-import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 import java.io.File;
 
 import javax.swing.*;
@@ -9,17 +9,21 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import com.beaver.softw.app.view.window.WindowManager;
 import com.beaver.softw.app.view.winparts.WindowPart;
 import com.beaver.softw.support.appdata.Dimensions;
+import com.beaver.softw.support.config.Language;
 
 public final class WindowSidebar extends JPanel implements WindowPart {
+	private final JLabel titleLabel;
 	private JTree projectTree;
 	private final JScrollPane scrollPane;
 	private final JFileChooser fileChooser;
 
 	public WindowSidebar() {
+		this.titleLabel = new JLabel(Language.get("Sidebar.Title"));
+		this.titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
 		this.scrollPane = new JScrollPane(this.projectTree);
 		this.scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		this.scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		this.scrollPane.setPreferredSize(Dimensions.SIDEBAR_DIMENSION);
 
 		this.fileChooser = new JFileChooser();
 		this.fileChooser.setDialogTitle("");
@@ -27,7 +31,6 @@ public final class WindowSidebar extends JPanel implements WindowPart {
 		this.fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
 		this.setup();
-		this.add(this.scrollPane);
 	}
 
 	private void addChildToRootOnDisplay(final File rootFile, final DefaultMutableTreeNode rootNode) {
@@ -67,6 +70,8 @@ public final class WindowSidebar extends JPanel implements WindowPart {
 	@Override
 	public void setup() {
 		this.setPreferredSize(Dimensions.SIDEBAR_DIMENSION);
-		this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+		this.setLayout(new BorderLayout());
+		this.add(this.titleLabel, BorderLayout.NORTH);
+		this.add(this.scrollPane, BorderLayout.CENTER);
 	}
 }

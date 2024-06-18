@@ -7,4 +7,8 @@
         <SettingsMenu>Settings</SettingsMenu>
         <SettingsMenuAppearance>Appearance</SettingsMenuAppearance>
     </Words>
+
+    <Words user="Sidebar">
+        <Title>Project Structure</Title>
+    </Words>
 </Language>
