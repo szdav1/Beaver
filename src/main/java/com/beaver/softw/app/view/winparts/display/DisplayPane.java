@@ -2,7 +2,6 @@ package com.beaver.softw.app.view.winparts.display;
 
 import java.awt.BorderLayout;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
 
 import javax.swing.*;
@@ -51,11 +50,8 @@ public final class DisplayPane extends JSplitPane implements WindowPart {
 			sp.setViewportView(ta);
 			this.tabbedPane.addTab(f.getName(), sp);
 		}
-		catch (FileNotFoundException exc) {
-			exc.printStackTrace();
-		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.COMPONENT_COMMUNICATION_ERROR, exc);
+			ErrorDialog.display(ErrorDialogTitle.INVALID_FILE_ERROR, exc.getStackTrace());
 		}
 	}
 

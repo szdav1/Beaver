@@ -56,7 +56,7 @@ public abstract class AbstractXMLObjectParser {
 			}
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.XML_RESOURCE_ERROR, exc);
+			ErrorDialog.display(ErrorDialogTitle.XML_RESOURCE_ERROR, exc.getStackTrace());
 		}
 	}
 }

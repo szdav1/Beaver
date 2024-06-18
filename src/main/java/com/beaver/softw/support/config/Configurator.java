@@ -22,7 +22,7 @@ public final class Configurator {
 			UIManager.setLookAndFeel(settings.get("LookAndFeel"));
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.XML_RESOURCE_ERROR, exc);
+			ErrorDialog.display(ErrorDialogTitle.LOOK_AND_FEEL_ERROR, exc.getStackTrace());
 		}
 	}
 

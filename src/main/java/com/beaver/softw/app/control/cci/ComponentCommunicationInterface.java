@@ -70,7 +70,7 @@ public final class ComponentCommunicationInterface {
 			m.invoke(o, arguments);
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.COMPONENT_COMMUNICATION_ERROR, exc);
+			ErrorDialog.display(ErrorDialogTitle.COMPONENT_COMMUNICATION_ERROR, exc.getStackTrace());
 		}
 	}
 
@@ -94,7 +94,7 @@ public final class ComponentCommunicationInterface {
 			m.invoke(o);
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.COMPONENT_COMMUNICATION_ERROR, exc);
+			ErrorDialog.display(ErrorDialogTitle.COMPONENT_COMMUNICATION_ERROR, exc.getStackTrace());
 		}
 	}
 }
