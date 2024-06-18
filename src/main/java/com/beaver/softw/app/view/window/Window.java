@@ -2,6 +2,8 @@ package com.beaver.softw.app.view.window;
 
 import java.awt.Image;
 
+import javax.swing.JComponent;
+
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
 import com.beaver.softw.app.view.winparts.display.DisplayPane;
 import com.beaver.softw.app.view.winparts.menu.WindowMenuBar;
@@ -32,5 +34,17 @@ public final class Window extends AbstractWindow {
 		this.setJMenuBar(this.windowMenuBar);
 		this.add(this.displayPane);
 		this.pack();
+	}
+
+	@Override
+	public void addnr(JComponent component) {
+		this.displayPane.getDisplay()
+			.add(component);
+	}
+
+	@Override
+	public void addnr(JComponent component, String position) {
+		this.displayPane.getDisplay()
+			.add(component, position);
 	}
 }

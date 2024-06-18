@@ -6,18 +6,24 @@ import java.io.File;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import com.beaver.softw.app.control.winparts.sidebar.SidebarController;
 import com.beaver.softw.app.view.window.WindowManager;
 import com.beaver.softw.app.view.winparts.WindowPart;
 import com.beaver.softw.support.appdata.Dimensions;
 import com.beaver.softw.support.config.Language;
+import lombok.Getter;
 
 public final class WindowSidebar extends JPanel implements WindowPart {
+	private final SidebarController controller;
 	private final JLabel titleLabel;
+	@Getter
 	private JTree projectTree;
 	private final JScrollPane scrollPane;
 	private final JFileChooser fileChooser;
 
 	public WindowSidebar() {
+		this.controller = new SidebarController(this);
+
 		this.titleLabel = new JLabel(Language.get("Sidebar.Title"));
 		this.titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -63,6 +69,7 @@ public final class WindowSidebar extends JPanel implements WindowPart {
 		}
 
 		this.projectTree = new JTree(rootNode);
+		this.projectTree.addMouseListener(this.controller);
 		this.scrollPane.setViewportView(this.projectTree);
 		WindowManager.repaint();
 	}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SupportedFileExtensions>
+    <Extension>
+        <Java>java</Java>
+        <TXT>txt</TXT>
+        <Md>md</Md>
+        <Gradle>gradle</Gradle>
+        <XML>xml</XML>
+        <Json>json</Json>
+    </Extension>
+</SupportedFileExtensions>

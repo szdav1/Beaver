@@ -14,5 +14,6 @@
         -->
         <LookAndFeel>javax.swing.plaf.nimbus.NimbusLookAndFeel</LookAndFeel>
         <Language>English.xml</Language>
+        <SupportedFileExtensions>SupportedFileExtensions.xml</SupportedFileExtensions>
     </Setting>
 </Settings>
