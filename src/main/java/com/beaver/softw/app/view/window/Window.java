@@ -34,6 +34,7 @@ public final class Window extends AbstractWindow {
 		this.setJMenuBar(this.windowMenuBar);
 		this.add(this.displayPane);
 		this.pack();
+		this.setLocationRelativeTo(null);
 	}
 
 	@Override

@@ -24,7 +24,6 @@ public abstract class AbstractWindow extends JFrame {
 		this.setLayout(new BorderLayout());
 		this.setLocationRelativeTo(null);
 		this.setAutoRequestFocus(true);
-		this.setResizable(false);
 		this.setIconImage(image);
 		this.setTitle(title);
 	}
