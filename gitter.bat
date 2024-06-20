@@ -1,6 +1,12 @@
-@REM Gitter Version 1.0.0
+@REM Gitter Version 1.5.0
+@echo off
 echo "Gitter V.1.0.0"
 cls
-git add .
-git commit -m %1
-git push origin %2
+SET mode=%1
+
+if %mode%==--up (
+    echo Pushing...
+    git add .
+    git commit -m %2
+    git push origin %3
+)
