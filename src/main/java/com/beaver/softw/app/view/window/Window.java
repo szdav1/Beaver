@@ -6,12 +6,12 @@ import javax.swing.JComponent;
 
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
 import com.beaver.softw.app.view.winparts.display.DisplayPane;
-import com.beaver.softw.app.view.winparts.menu.WindowMenuBar;
-import com.beaver.softw.app.view.winparts.sidebar.WindowSidebar;
+import com.beaver.softw.app.view.winparts.menu.MenuBar;
+import com.beaver.softw.app.view.winparts.sidebar.Sidebar;
 
 public final class Window extends AbstractWindow {
-	private final WindowMenuBar windowMenuBar;
-	private final WindowSidebar windowSidebar;
+	private final MenuBar menuBar;
+	private final Sidebar sidebar;
 	private final DisplayPane displayPane;
 
 	public Window(Image image, String title) {
@@ -19,11 +19,11 @@ public final class Window extends AbstractWindow {
 		ComponentCommunicationInterface.init(this);
 		WindowManager.init(this);
 
-		this.windowMenuBar = new WindowMenuBar();
-		this.windowSidebar = new WindowSidebar();
+		this.menuBar = new MenuBar();
+		this.sidebar = new Sidebar();
 
 		this.displayPane = new DisplayPane();
-		this.displayPane.setLeftComponent(this.windowSidebar);
+		this.displayPane.setLeftComponent(this.sidebar);
 
 		this.constructWindowStructure();
 		this.setVisible(true);
@@ -31,7 +31,7 @@ public final class Window extends AbstractWindow {
 	}
 
 	private void constructWindowStructure() {
-		this.setJMenuBar(this.windowMenuBar);
+		this.setJMenuBar(this.menuBar);
 		this.add(this.displayPane);
 		this.pack();
 		this.setLocationRelativeTo(null);

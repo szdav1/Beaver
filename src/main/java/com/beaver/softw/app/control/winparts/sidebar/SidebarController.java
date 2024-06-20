@@ -8,15 +8,15 @@ import javax.swing.tree.TreePath;
 
 import com.beaver.softw.app.control.AbstractController;
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
-import com.beaver.softw.app.view.winparts.sidebar.WindowSidebar;
+import com.beaver.softw.app.view.winparts.sidebar.Sidebar;
 import com.beaver.softw.support.config.SupportedFileExtensions;
 import com.beaver.softw.support.util.Util;
 
 public final class SidebarController extends AbstractController {
-	private final WindowSidebar windowSidebar;
+	private final Sidebar sidebar;
 
-	public SidebarController(final WindowSidebar windowSidebar) {
-		this.windowSidebar = windowSidebar;
+	public SidebarController(final Sidebar sidebar) {
+		this.sidebar = sidebar;
 	}
 
 	private String createStringPath(final TreePath treePath) {
@@ -49,7 +49,7 @@ public final class SidebarController extends AbstractController {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		JTree pt = windowSidebar.getProjectTree();
+		JTree pt = sidebar.getProjectTree();
 		TreePath stp = pt.getSelectionPath();
 		String path = this.createStringPath(stp);
 

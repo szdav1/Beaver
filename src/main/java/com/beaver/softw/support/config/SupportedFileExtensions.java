@@ -11,6 +11,9 @@ public final class SupportedFileExtensions {
 	private static final List<String> supportedExtensions = new ArrayList<>();
 
 	public static void init(final HashMap<String, String> data) {
-		data.forEach((k, v) -> supportedExtensions.add(v));
+		if (data.isEmpty())
+			supportedExtensions.addAll(List.of("java", "xml", "md", "txt", "json", "gradle"));
+		else
+			data.forEach((k, v) -> supportedExtensions.add(v));
 	}
 }

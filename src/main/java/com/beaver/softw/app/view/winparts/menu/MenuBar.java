@@ -6,9 +6,9 @@ import com.beaver.softw.app.control.winparts.menubar.MenuBarController;
 import com.beaver.softw.app.view.winparts.WindowPart;
 import com.beaver.softw.support.appdata.Dimensions;
 
-public final class WindowMenuBar extends JMenuBar implements WindowPart {
-	public WindowMenuBar() {
-		new WindowMenuBuilder(this)
+public final class MenuBar extends JMenuBar implements WindowPart {
+	public MenuBar() {
+		new MenuBarBuilder(this)
 			.setController(new MenuBarController(this))
 			.addMenus("MenuBar.FileMenu", "MenuBar.SettingsMenu")
 			.addMenuItems(0, "MenuBar.FileMenuOpen")

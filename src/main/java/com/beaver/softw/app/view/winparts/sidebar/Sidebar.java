@@ -13,7 +13,7 @@ import com.beaver.softw.support.appdata.Dimensions;
 import com.beaver.softw.support.config.Language;
 import lombok.Getter;
 
-public final class WindowSidebar extends JPanel implements WindowPart {
+public final class Sidebar extends JPanel implements WindowPart {
 	private final SidebarController controller;
 	private final JLabel titleLabel;
 	@Getter
@@ -21,7 +21,7 @@ public final class WindowSidebar extends JPanel implements WindowPart {
 	private final JScrollPane scrollPane;
 	private final JFileChooser fileChooser;
 
-	public WindowSidebar() {
+	public Sidebar() {
 		this.controller = new SidebarController(this);
 
 		this.titleLabel = new JLabel(Language.get("Sidebar.Title"));
@@ -53,7 +53,9 @@ public final class WindowSidebar extends JPanel implements WindowPart {
 	}
 
 	public void constructTreeStructure() {
-		this.fileChooser.showOpenDialog(null);
+		if (this.fileChooser.showOpenDialog(null) != JFileChooser.APPROVE_OPTION)
+			return;
+
 		File rootFile = this.fileChooser.getSelectedFile();
 
 		if (!rootFile.isDirectory() || !rootFile.exists())

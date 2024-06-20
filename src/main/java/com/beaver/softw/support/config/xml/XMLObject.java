@@ -25,7 +25,10 @@ public final class XMLObject {
 
 	public String getText() {
 		if (this.text != null)
-			return this.text.getData();
+			return this.text.getData()
+				.strip()
+				.replaceAll(" ", "")
+				.replaceAll("\n", "");
 
 		return "";
 	}

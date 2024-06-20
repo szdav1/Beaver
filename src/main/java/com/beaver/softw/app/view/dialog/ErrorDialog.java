@@ -1,5 +1,8 @@
 package com.beaver.softw.app.view.dialog;
 
+import java.util.List;
+import java.util.Objects;
+
 import javax.swing.JOptionPane;
 
 public final class ErrorDialog {
@@ -14,7 +17,9 @@ public final class ErrorDialog {
 		}
 
 		JOptionPane.showMessageDialog(null, strb.toString(), title.getTitle(), JOptionPane.ERROR_MESSAGE);
-		wasDisplayed = true;
+
+		if (title == ErrorDialogTitle.SETTINGS_XML_FILE_ERROR)
+			wasDisplayed = true;
 	}
 
 	public static boolean wasDisplayed() {

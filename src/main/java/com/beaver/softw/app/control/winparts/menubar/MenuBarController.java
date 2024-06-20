@@ -4,31 +4,31 @@ import java.awt.event.ActionEvent;
 
 import com.beaver.softw.app.control.AbstractController;
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
-import com.beaver.softw.app.view.winparts.menu.WindowMenuBar;
-import com.beaver.softw.app.view.winparts.menu.WindowMenuItem;
+import com.beaver.softw.app.view.winparts.menu.MenuBar;
+import com.beaver.softw.app.view.winparts.menu.MenuItem;
 
 public final class MenuBarController extends AbstractController {
-	private final WindowMenuBar menuBar;
+	private final MenuBar menuBar;
 
-	public MenuBarController(WindowMenuBar menuBar) {
+	public MenuBarController(MenuBar menuBar) {
 		this.menuBar = menuBar;
 	}
 
-	private void handleFileMenuActions(final WindowMenuItem windowMenuItem) {
-		switch (windowMenuItem.getItemIndex()) {
-			case 0 -> ComponentCommunicationInterface.requestMethodInvocationOn("windowSidebar", "constructTreeStructure");
+	private void handleFileMenuActions(final MenuItem menuItem) {
+		switch (menuItem.getItemIndex()) {
+			case 0 -> ComponentCommunicationInterface.requestMethodInvocationOn("sidebar", "constructTreeStructure");
 		}
 	}
 
-	private void handleSettingsMenuActions(final WindowMenuItem windowMenuItem) {
-		switch (windowMenuItem.getItemIndex()) {
+	private void handleSettingsMenuActions(final MenuItem menuItem) {
+		switch (menuItem.getItemIndex()) {
 			case 0 -> {}
 		}
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() instanceof WindowMenuItem wmi) {
+		if (e.getSource() instanceof MenuItem wmi) {
 			switch (wmi.getMenuIndex()) {
 				case 0 -> this.handleFileMenuActions(wmi);
 				case 1 -> this.handleSettingsMenuActions(wmi);
