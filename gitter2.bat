@@ -10,7 +10,3 @@ if %mode%==--up (
     git commit -m %2
     git push origin %3
 )
-
-if %mode%==dwn (
-
-)
