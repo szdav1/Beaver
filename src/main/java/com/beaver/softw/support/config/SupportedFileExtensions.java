@@ -12,7 +12,7 @@ public final class SupportedFileExtensions {
 
 	public static void init(final HashMap<String, String> data) {
 		if (data.isEmpty())
-			supportedExtensions.addAll(List.of("java", "xml", "md", "txt", "json", "gradle"));
+			supportedExtensions.addAll(List.of("java", "xml", "md", "txt", "json", "gradle", "html", "css", "js"));
 		else
 			data.forEach((k, v) -> supportedExtensions.add(v));
 	}

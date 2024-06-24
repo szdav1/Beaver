@@ -16,7 +16,10 @@ public final class ResourceHandler {
 			return url.getFile();
 		}
 		catch (Exception exc) {
-			return "resources"+path;
+			return new StringBuilder()
+				.append("resources")
+				.append("path")
+				.toString();
 		}
 	}
 }

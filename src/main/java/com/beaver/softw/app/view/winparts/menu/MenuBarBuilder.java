@@ -7,7 +7,7 @@ import com.beaver.softw.support.config.Language;
 import com.beaver.softw.support.util.Util;
 
 public final class MenuBarBuilder {
-	private MenuBar menuBar;
+	private final MenuBar menuBar;
 	private AbstractController controller;
 
 	public MenuBarBuilder(MenuBar menuBar) {
@@ -22,23 +22,23 @@ public final class MenuBarBuilder {
 
 	public MenuBarBuilder addMenus(final String... menuTitles) {
 		for (String menuTitle : menuTitles) {
-			JMenu m = new JMenu(Language.get(menuTitle));
-			this.menuBar.add(m);
+			JMenu menu = new JMenu(Language.get(menuTitle));
+			this.menuBar.add(menu);
 		}
 
 		return this;
 	}
 
 	public MenuBarBuilder addMenuItems(int menuIndex, final String... menuItemTitles) {
-		JMenu m = this.menuBar.getMenu(menuIndex);
+		JMenu menu = this.menuBar.getMenu(menuIndex);
 
-		if (Util.isNull(m))
+		if (Util.isNull(menu))
 			return this;
 
 		for (int i = 0; i < menuItemTitles.length; i++) {
 			MenuItem wmi = new MenuItem(Language.get(menuItemTitles[i]), menuIndex, i);
 			wmi.addActionListener(this.controller);
-			m.add(wmi);
+			menu.add(wmi);
 		}
 
 		return this;

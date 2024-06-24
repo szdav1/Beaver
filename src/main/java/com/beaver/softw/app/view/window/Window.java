@@ -38,14 +38,16 @@ public final class Window extends AbstractWindow {
 	}
 
 	@Override
-	public void addnr(JComponent component) {
+	public void addAndRepaint(final JComponent component) {
 		this.displayPane.getDisplay()
 			.add(component);
+		this.repaint();
 	}
 
 	@Override
-	public void addnr(JComponent component, String position) {
+	public void addAndRepaint(final JComponent component, String position) {
 		this.displayPane.getDisplay()
 			.add(component, position);
+		this.repaint();
 	}
 }

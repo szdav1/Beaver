@@ -14,37 +14,37 @@ public final class ComponentCommunicationInterface {
 		ComponentCommunicationInterface.window = window;
 	}
 
-	private static boolean hasField(final String fieldName) {
+	private static boolean doesNotHaveField(final String fieldName) {
 		Field[] fields = window.getClass()
 			.getDeclaredFields();
 
 		for (Field field : fields) {
 			if (field.getName().equalsIgnoreCase(fieldName))
-				return true;
+				return false;
 		}
 
-		return false;
+		return true;
 	}
 
-	private static boolean hasMethod(final Object object, final String methodName) {
+	private static boolean doesNotHaveMethod(final Object object, final String methodName) {
 		Method[] methods = object.getClass()
 			.getDeclaredMethods();
 
 		for (Method method : methods) {
 			if (method.getName().equalsIgnoreCase(methodName))
-				return true;
+				return false;
 		}
 
-		return false;
+		return true;
 	}
 
 	private static Class<?>[] getTypesForMethod(final Object object, final String methodName) {
-		Method[] ms = object.getClass()
+		Method[] methods = object.getClass()
 			.getDeclaredMethods();
 
-		for (Method m : ms) {
-			if (m.getName().equalsIgnoreCase(methodName))
-				return m.getParameterTypes();
+		for (Method method : methods) {
+			if (method.getName().equalsIgnoreCase(methodName))
+				return method.getParameterTypes();
 		}
 
 		return new Class[0];
@@ -52,22 +52,22 @@ public final class ComponentCommunicationInterface {
 
 	public static void requestMethodInvocationOn(final String componentName, final String methodName, final Object... arguments) {
 		try {
-			if (!hasField(componentName))
+			if (doesNotHaveField(componentName))
 				return;
 
-			Field f = window.getClass()
+			Field field = window.getClass()
 				.getDeclaredField(componentName);
-			f.setAccessible(true);
+			field.setAccessible(true);
 
-			Object o = f.get(window);
+			Object object = field.get(window);
 
-			if (!hasMethod(o, methodName))
+			if (doesNotHaveMethod(object, methodName))
 				return;
 
-			Method m = o.getClass()
-				.getDeclaredMethod(methodName, getTypesForMethod(o, methodName));
-			m.setAccessible(true);
-			m.invoke(o, arguments);
+			Method method = object.getClass()
+				.getDeclaredMethod(methodName, getTypesForMethod(object, methodName));
+			method.setAccessible(true);
+			method.invoke(object, arguments);
 		}
 		catch (Exception exc) {
 			ErrorDialog.display(ErrorDialogTitle.COMPONENT_COMMUNICATION_ERROR, exc.getStackTrace());
@@ -76,22 +76,22 @@ public final class ComponentCommunicationInterface {
 
 	public static void requestMethodInvocationOn(final String componentName, final String methodName) {
 		try {
-			if (!hasField(componentName))
+			if (doesNotHaveField(componentName))
 				return;
 
-			Field f = window.getClass()
+			Field field = window.getClass()
 				.getDeclaredField(componentName);
-			f.setAccessible(true);
+			field.setAccessible(true);
 
-			Object o = f.get(window);
+			Object object = field.get(window);
 
-			if (!hasMethod(o, methodName))
+			if (doesNotHaveMethod(object, methodName))
 				return;
 
-			Method m = o.getClass()
+			Method method = object.getClass()
 				.getDeclaredMethod(methodName);
-			m.setAccessible(true);
-			m.invoke(o);
+			method.setAccessible(true);
+			method.invoke(object);
 		}
 		catch (Exception exc) {
 			ErrorDialog.display(ErrorDialogTitle.COMPONENT_COMMUNICATION_ERROR, exc.getStackTrace());

@@ -28,12 +28,12 @@ public abstract class AbstractWindow extends JFrame {
 		this.setTitle(title);
 	}
 
-	public void addnr(final JComponent component) {
+	public void addAndRepaint(final JComponent component) {
 		this.add(component);
 		this.repaint();
 	}
 
-	public void addnr(final JComponent component, String position) {
+	public void addAndRepaint(final JComponent component, String position) {
 		this.add(component, position);
 		this.repaint();
 	}

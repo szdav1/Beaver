@@ -10,7 +10,7 @@ import com.beaver.softw.app.view.winparts.menu.MenuItem;
 public final class MenuBarController extends AbstractController {
 	private final MenuBar menuBar;
 
-	public MenuBarController(MenuBar menuBar) {
+	public MenuBarController(final MenuBar menuBar) {
 		this.menuBar = menuBar;
 	}
 
@@ -28,10 +28,10 @@ public final class MenuBarController extends AbstractController {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() instanceof MenuItem wmi) {
-			switch (wmi.getMenuIndex()) {
-				case 0 -> this.handleFileMenuActions(wmi);
-				case 1 -> this.handleSettingsMenuActions(wmi);
+		if (e.getSource() instanceof MenuItem menuItem) {
+			switch (menuItem.getMenuIndex()) {
+				case 0 -> this.handleFileMenuActions(menuItem);
+				case 1 -> this.handleSettingsMenuActions(menuItem);
 			}
 		}
 	}

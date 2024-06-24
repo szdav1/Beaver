@@ -24,18 +24,18 @@ public abstract class AbstractXMLObjectParser {
 
 	public HashMap<String, String> getData() {
 		HashMap<String, String> data = new HashMap<>();
-		this.xmlObjects.forEach(xmlo -> data.put(xmlo.getPath(), xmlo.getText()));
+		this.xmlObjects.forEach(xmlObject -> data.put(xmlObject.getPath(), xmlObject.getText()));
 
 		return data;
 	}
 
 	public void readFromXML(final String filePath) throws Exception {
-		Document xmlDoc = DocumentBuilderFactory.newInstance()
+		Document xmlDocument = DocumentBuilderFactory.newInstance()
 			.newDocumentBuilder()
 			.parse(new File(ResourceHandler.get(filePath)));
 
-		xmlDoc.normalize();
-		NodeList rootNodes = xmlDoc.getElementsByTagName(configuration.getRootTagName());
+		xmlDocument.normalize();
+		NodeList rootNodes = xmlDocument.getElementsByTagName(configuration.getRootTagName());
 
 		for (int i = 0; i < rootNodes.getLength(); i++) {
 			if (!XMLObject.isElement(rootNodes.item(i)))

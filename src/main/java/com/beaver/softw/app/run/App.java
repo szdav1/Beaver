@@ -8,8 +8,7 @@ public final class App {
 	public App() {
 		Configurator.configure("/settings/Settings.xml");
 
-		if (!ErrorDialog.wasDisplayed()) {
-			Window win = new Window(null, "Beaver - Version 0.5");
-		}
+		if (!ErrorDialog.wasDisplayed())
+			new Window(null, "Beaver - Version 0.5");
 	}
 }

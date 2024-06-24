@@ -16,6 +16,9 @@ public final class WindowManager {
 	}
 
 	public static void repaint() {
+		if (!initialized)
+			return;
+
 		window.repaint();
 	}
 }

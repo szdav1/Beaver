@@ -34,16 +34,21 @@ public final class Configurator {
 	}
 
 	private static void loadSettingsConfiguration(final String settingsFilePath) throws Exception {
-		SettingsReader sr = new SettingsReader();
-		sr.readFromXML(settingsFilePath);
-		settings = sr.getData();
+		SettingsReader settingsReader = new SettingsReader();
+		settingsReader.readFromXML(settingsFilePath);
+		settings = settingsReader.getData();
 	}
 
 	private static void loadLanguageConfiguration() {
 		try {
-			LanguageReader lr = new LanguageReader();
-			lr.readFromXML("/language/"+settings.get("Language"));
-			Language.init(lr.getData());
+			LanguageReader languageReader = new LanguageReader();
+			languageReader.readFromXML(
+				new StringBuilder()
+					.append("/language/")
+					.append(settings.get("Language"))
+					.toString()
+			);
+			Language.init(languageReader.getData());
 		}
 		catch (Exception exc) {
 			ErrorDialog.display(ErrorDialogTitle.LANGUAGE_XML_FILE_ERROR, exc.getStackTrace());
@@ -52,9 +57,14 @@ public final class Configurator {
 
 	private static void loadSupportedFileExtensionsConfiguration() {
 		try {
-			SupportedFileExtensionsReader sfer = new SupportedFileExtensionsReader();
-			sfer.readFromXML("/settings/"+settings.get("SupportedFileExtensions"));
-			SupportedFileExtensions.init(sfer.getData());
+			SupportedFileExtensionsReader supportedFileExtensionsReader = new SupportedFileExtensionsReader();
+			supportedFileExtensionsReader.readFromXML(
+				new StringBuilder()
+					.append("/settings/")
+					.append(settings.get("SupportedFileExtensions"))
+					.toString()
+			);
+			SupportedFileExtensions.init(supportedFileExtensionsReader.getData());
 		}
 		catch (Exception exc) {
 			ErrorDialog.display(ErrorDialogTitle.SUPPORTED_FILE_EXTENSIONS, exc.getStackTrace());

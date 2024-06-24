@@ -39,7 +39,7 @@ public final class Sidebar extends JPanel implements WindowPart {
 		this.setup();
 	}
 
-	private void addChildToRootOnDisplay(final File rootFile, final DefaultMutableTreeNode rootNode) {
+	private void addChildFileToRootFileOnDisplay(final File rootFile, final DefaultMutableTreeNode rootNode) {
 		if (!rootFile.isDirectory())
 			return;
 
@@ -48,7 +48,7 @@ public final class Sidebar extends JPanel implements WindowPart {
 		for (File childFile : childFiles) {
 			DefaultMutableTreeNode childNode = new DefaultMutableTreeNode(childFile.getName());
 			rootNode.add(childNode);
-			this.addChildToRootOnDisplay(childFile, childNode);
+			this.addChildFileToRootFileOnDisplay(childFile, childNode);
 		}
 	}
 
@@ -66,7 +66,7 @@ public final class Sidebar extends JPanel implements WindowPart {
 
 		for (File childFile : childFiles) {
 			DefaultMutableTreeNode childNode = new DefaultMutableTreeNode(childFile.getName());
-			this.addChildToRootOnDisplay(childFile, childNode);
+			this.addChildFileToRootFileOnDisplay(childFile, childNode);
 			rootNode.add(childNode);
 		}
 

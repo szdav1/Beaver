@@ -49,14 +49,14 @@ public final class XMLObject {
 	}
 
 	private void getTextData() {
-		NodeList nl = this.rootNode.getChildNodes();
+		NodeList childNodeList = this.rootNode.getChildNodes();
 
-		for (int i = 0; i < nl.getLength(); i++) {
-			if (isText(nl.item(i))) {
-				Text t = (Text) nl.item(i);
+		for (int i = 0; i < childNodeList.getLength(); i++) {
+			if (isText(childNodeList.item(i))) {
+				Text text = (Text) childNodeList.item(i);
 
-				if (t != null && !t.getData().isBlank())
-					this.text = t;
+				if (text != null && !text.getData().isBlank())
+					this.text = text;
 			}
 		}
 	}

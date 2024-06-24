@@ -7,5 +7,8 @@
         <Gradle>gradle</Gradle>
         <XML>xml</XML>
         <Json>json</Json>
+        <Html>html</Html>
+        <Css>css</Css>
+        <Js>js</Js>
     </Extension>
 </SupportedFileExtensions>

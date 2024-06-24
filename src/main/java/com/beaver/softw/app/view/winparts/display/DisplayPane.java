@@ -22,33 +22,33 @@ public final class DisplayPane extends JSplitPane implements WindowPart {
 		this.display.setLayout(new BorderLayout());
 
 		this.tabbedPane = new JTabbedPane();
-		this.setPreferredSize(Dimensions.WINDOW_DIMENSION);
 
+		this.setPreferredSize(Dimensions.WINDOW_DIMENSION);
 		this.setup();
 	}
 
 	public void openFileToTab(final String filePath) {
-		File f = new File(filePath);
+		File file = new File(filePath);
 
-		if (this.tabbedPane.getTabCount() != 0 && this.tabbedPane.indexOfTab(f.getName()) >= 0)
+		if (this.tabbedPane.getTabCount() != 0 && this.tabbedPane.indexOfTab(file.getName()) >= 0)
 			return;
 
-		try (RandomAccessFile raf = new RandomAccessFile(f, "r")) {
-			JTextArea ta = new JTextArea();
-			String line = raf.readLine();
+		try (RandomAccessFile reader = new RandomAccessFile(file, "r")) {
+			JTextArea textArea = new JTextArea();
+			String line = reader.readLine();
 
-			JScrollPane sp = new JScrollPane(ta);
-			sp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-			sp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-			sp.setPreferredSize(Dimensions.WINDOW_DIMENSION);
+			JScrollPane scrollPane = new JScrollPane(textArea);
+			scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+			scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+			scrollPane.setPreferredSize(Dimensions.WINDOW_DIMENSION);
 
 			while (line != null) {
-				ta.setText(ta.getText()+line+"\n");
-				line = raf.readLine();
+				textArea.setText(textArea.getText()+line+"\n");
+				line = reader.readLine();
 			}
 
-			sp.setViewportView(ta);
-			this.tabbedPane.addTab(f.getName(), sp);
+			scrollPane.setViewportView(textArea);
+			this.tabbedPane.addTab(file.getName(), scrollPane);
 		}
 		catch (Exception exc) {
 			ErrorDialog.display(ErrorDialogTitle.INVALID_FILE_ERROR, exc.getStackTrace());

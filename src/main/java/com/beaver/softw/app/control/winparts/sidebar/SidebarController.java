@@ -19,39 +19,41 @@ public final class SidebarController extends AbstractController {
 		this.sidebar = sidebar;
 	}
 
-	private String createStringPath(final TreePath treePath) {
-		StringBuilder strb = new StringBuilder();
+	private String createStringPathFromTreePath(final TreePath treePath) {
+		StringBuilder stringBuilder = new StringBuilder();
 
 		if (Util.isNull(treePath))
 			return "";
 
-		for (Object o : treePath.getPath()) {
-			strb.append(o)
+		for (Object object : treePath.getPath()) {
+			stringBuilder.append(object)
 				.append("\\");
 		}
 
-		return strb.toString();
+		return stringBuilder.toString();
 	}
 
-	private String getFileExtension(final File file) {
-		String fn = file.getName();
-		String[] fnParts = fn.split("\\.");
+	private String getFileExtensionOfFile(final File file) {
+		String fileName = file.getName();
+		String[] fileNameParts = fileName.split("\\.");
 
-		return fnParts[fnParts.length-1];
+		return fileNameParts[fileNameParts.length-1];
 	}
 
 	private boolean isReadableFile(final String filePath) {
-		File f = new File(filePath);
+		File file = new File(filePath);
 
-		return f.isFile() && f.exists() && SupportedFileExtensions.getSupportedExtensions()
-			.contains(this.getFileExtension(f));
+		return file.isFile() &&
+			file.exists() &&
+			SupportedFileExtensions.getSupportedExtensions()
+			.contains(this.getFileExtensionOfFile(file));
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		JTree pt = sidebar.getProjectTree();
 		TreePath stp = pt.getSelectionPath();
-		String path = this.createStringPath(stp);
+		String path = this.createStringPathFromTreePath(stp);
 
 		if (this.isReadableFile(path))
 			ComponentCommunicationInterface.requestMethodInvocationOn("displayPane", "openFileToTab", path);
