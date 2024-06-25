@@ -9,19 +9,20 @@ import javax.swing.*;
 import com.beaver.softw.app.view.dialog.ErrorDialog;
 import com.beaver.softw.app.view.dialog.ErrorDialogTitle;
 import com.beaver.softw.app.view.winparts.WindowPart;
+import com.beaver.softw.app.view.winparts.display.tabbed.TabbedPane;
 import com.beaver.softw.support.appdata.Dimensions;
 import lombok.Getter;
 
 @Getter
 public final class DisplayPane extends JSplitPane implements WindowPart {
 	private final JLayeredPane display;
-	private final JTabbedPane tabbedPane;
+	private final TabbedPane tabbedPane;
 
 	public DisplayPane() {
 		this.display = new JLayeredPane();
 		this.display.setLayout(new BorderLayout());
 
-		this.tabbedPane = new JTabbedPane();
+		this.tabbedPane = new TabbedPane();
 
 		this.setPreferredSize(Dimensions.WINDOW_DIMENSION);
 		this.setup();
@@ -48,7 +49,7 @@ public final class DisplayPane extends JSplitPane implements WindowPart {
 			}
 
 			scrollPane.setViewportView(textArea);
-			this.tabbedPane.addTab(file.getName(), scrollPane);
+			this.tabbedPane.addCloseableTab(file.getName(), scrollPane);
 		}
 		catch (Exception exc) {
 			ErrorDialog.display(ErrorDialogTitle.INVALID_FILE_ERROR, exc.getStackTrace());

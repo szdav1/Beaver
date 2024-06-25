@@ -1,7 +1,7 @@
 @REM Gitter Version 1.5.0
 @echo off
-echo "Gitter V.1.0.0"
 cls
+echo "Gitter V.1.0.0"
 SET mode=%1
 
 if %mode%==--up (

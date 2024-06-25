@@ -6,6 +6,10 @@ group 'com.beaver.softw'
 version '0.5-WORK-IN-PROGRESS'
 
 repositories {
+    flatDir {
+        dirs 'lib'
+    }
+
     mavenCentral()
 }
 
@@ -18,6 +22,8 @@ dependencies {
 
     testCompileOnly 'org.projectlombok:lombok:1.18.32'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
+
+    implementation name: 'JTattoo-1.6.13'
 }
 
 test {

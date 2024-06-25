@@ -12,7 +12,7 @@
         com.jtattoo.plaf.noire.NoireLookAndFeel
         com.jtattoo.plaf.acryl.AcrylLookAndFeel
         -->
-        <LookAndFeel>javax.swing.plaf.nimbus.NimbusLookAndFeel</LookAndFeel>
+        <LookAndFeel>com.jtattoo.plaf.hifi.HiFiLookAndFeel</LookAndFeel>
         <Language>English.xml</Language>
         <SupportedFileExtensions>SupportedFileExtensions.xml</SupportedFileExtensions>
     </Setting>
