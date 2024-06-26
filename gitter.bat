@@ -4,11 +4,33 @@ cls
 echo Gitter V.1.5.0
 SET mode=%1
 
-if not defined mode echo Mode not specified. Use --up or --dwn.
+if not defined mode goto mnsel
 
-if %mode%==--up (
-    echo Pushing...
-    git add .
-    git commit -m %2
-    git push origin %3
-)
+if %mode%==--up goto pushl
+
+:pushl
+SET msg=%2
+SET branch=%3
+
+if not defined msg goto msgndel
+
+if not defined branch goto branchndel
+
+git add .
+git commit -m %msg%
+git push origin %branch%
+goto exitl
+
+:msgndel
+echo Commit message not specified.
+goto exitl
+
+:branchndel
+echo Branch not specified.
+goto exitl
+
+:mnsel
+echo Mode not specified. Use --up, --dwn or --dwn-hard.
+goto exitl
+
+:exitl
