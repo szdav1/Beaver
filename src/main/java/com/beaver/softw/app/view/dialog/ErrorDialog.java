@@ -3,9 +3,11 @@ package com.beaver.softw.app.view.dialog;
 import javax.swing.JOptionPane;
 
 import com.beaver.softw.support.config.Language;
+import lombok.Getter;
 
 public final class ErrorDialog {
-	private static boolean wasDisplayed = false;
+	@Getter
+	private static boolean displayed = false;
 
 	public static void display(ErrorDialogTitle title, final Exception exception) {
 		StringBuilder stringBuilder = new StringBuilder();
@@ -26,10 +28,6 @@ public final class ErrorDialog {
 		);
 
 		if (title == ErrorDialogTitle.SETTINGS_XML_FILE_ERROR)
-			wasDisplayed = true;
-	}
-
-	public static boolean wasDisplayed() {
-		return wasDisplayed;
+			displayed = true;
 	}
 }

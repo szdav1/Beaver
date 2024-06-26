@@ -6,13 +6,11 @@ import com.beaver.softw.app.control.AbstractController;
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
 import com.beaver.softw.app.view.winparts.menu.MenuBar;
 import com.beaver.softw.app.view.winparts.menu.MenuItem;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 public final class MenuBarController extends AbstractController {
 	private final MenuBar menuBar;
-
-	public MenuBarController(final MenuBar menuBar) {
-		this.menuBar = menuBar;
-	}
 
 	private void handleFileMenuActions(final MenuItem menuItem) {
 		switch (menuItem.getItemIndex()) {

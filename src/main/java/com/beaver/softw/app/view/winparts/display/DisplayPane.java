@@ -51,9 +51,7 @@ public final class DisplayPane extends JSplitPane implements WindowPart {
 
 			scrollPane.setViewportView(textArea);
 			this.tabbedPane.addCloseableTab(
-				this.tabbedPane.indexOfTab(file.getName()) >= 0 ?
-					file.getAbsolutePath() :
-					file.getName(),
+				this.tabbedPane.indexOfTab(file.getName()) >= 0 ? file.getAbsolutePath() : file.getName(),
 				file.getAbsolutePath(),
 				scrollPane
 			);

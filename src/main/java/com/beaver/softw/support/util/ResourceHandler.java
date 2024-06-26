@@ -18,7 +18,7 @@ public final class ResourceHandler {
 		catch (Exception exc) {
 			return new StringBuilder()
 				.append("resources")
-				.append("path")
+				.append(path)
 				.toString();
 		}
 	}

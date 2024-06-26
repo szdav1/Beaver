@@ -14,7 +14,7 @@ public final class Language {
 
 	public static String get(String keyWord) {
 		if (!words.containsKey(keyWord))
-			return "!Lookup Failed!";
+			return "Lookup Failed!";
 
 		return words.get(keyWord);
 	}

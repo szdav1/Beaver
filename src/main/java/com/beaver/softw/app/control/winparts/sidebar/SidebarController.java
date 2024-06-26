@@ -10,19 +10,16 @@ import com.beaver.softw.app.control.AbstractController;
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
 import com.beaver.softw.app.view.winparts.sidebar.Sidebar;
 import com.beaver.softw.support.config.SupportedFileExtensions;
-import com.beaver.softw.support.util.Util;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 public final class SidebarController extends AbstractController {
 	private final Sidebar sidebar;
-
-	public SidebarController(final Sidebar sidebar) {
-		this.sidebar = sidebar;
-	}
 
 	private String createStringPathFromTreePath(final TreePath treePath) {
 		StringBuilder stringBuilder = new StringBuilder();
 
-		if (Util.isNull(treePath))
+		if (treePath == null)
 			return "";
 
 		for (Object object : treePath.getPath()) {

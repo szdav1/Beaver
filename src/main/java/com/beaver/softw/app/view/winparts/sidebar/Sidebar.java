@@ -35,7 +35,6 @@ public final class Sidebar extends JPanel implements WindowPart {
 		this.fileChooser.setDialogTitle("");
 		this.fileChooser.setMultiSelectionEnabled(false);
 		this.fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		this.fileChooser.setCurrentDirectory(new File("C:\\Users\\Dave\\IdeaProjects\\Beaver\\src\\main\\java\\com\\beaver\\softw\\support"));
 
 		this.setup();
 	}

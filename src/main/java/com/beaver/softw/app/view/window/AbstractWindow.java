@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Image;
 
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
@@ -26,15 +25,5 @@ public abstract class AbstractWindow extends JFrame {
 		this.setAutoRequestFocus(true);
 		this.setIconImage(image);
 		this.setTitle(title);
-	}
-
-	public void addAndRepaint(final JComponent component) {
-		this.add(component);
-		this.repaint();
-	}
-
-	public void addAndRepaint(final JComponent component, String position) {
-		this.add(component, position);
-		this.repaint();
 	}
 }

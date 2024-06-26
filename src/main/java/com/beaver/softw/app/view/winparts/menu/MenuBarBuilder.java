@@ -4,7 +4,6 @@ import javax.swing.JMenu;
 
 import com.beaver.softw.app.control.AbstractController;
 import com.beaver.softw.support.config.Language;
-import com.beaver.softw.support.util.Util;
 
 public final class MenuBarBuilder {
 	private final MenuBar menuBar;
@@ -32,7 +31,7 @@ public final class MenuBarBuilder {
 	public MenuBarBuilder addMenuItems(int menuIndex, final String... menuItemTitles) {
 		JMenu menu = this.menuBar.getMenu(menuIndex);
 
-		if (Util.isNull(menu))
+		if (menu == null)
 			return this;
 
 		for (int i = 0; i < menuItemTitles.length; i++) {

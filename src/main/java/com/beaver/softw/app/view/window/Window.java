@@ -1,17 +1,20 @@
 package com.beaver.softw.app.view.window;
 
+import java.awt.BorderLayout;
 import java.awt.Image;
-
-import javax.swing.JComponent;
 
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
 import com.beaver.softw.app.view.winparts.display.DisplayPane;
 import com.beaver.softw.app.view.winparts.menu.MenuBar;
 import com.beaver.softw.app.view.winparts.sidebar.Sidebar;
+import com.beaver.softw.app.view.winparts.toolbar.ToolBar;
+import lombok.Getter;
 
 public final class Window extends AbstractWindow {
 	private final MenuBar menuBar;
+	private final ToolBar toolBar;
 	private final Sidebar sidebar;
+	@Getter
 	private final DisplayPane displayPane;
 
 	public Window(Image image, String title) {
@@ -20,6 +23,7 @@ public final class Window extends AbstractWindow {
 		WindowManager.init(this);
 
 		this.menuBar = new MenuBar();
+		this.toolBar = new ToolBar();
 		this.sidebar = new Sidebar();
 
 		this.displayPane = new DisplayPane();
@@ -32,22 +36,9 @@ public final class Window extends AbstractWindow {
 
 	private void constructWindowStructure() {
 		this.setJMenuBar(this.menuBar);
-		this.add(this.displayPane);
+		this.add(this.toolBar, BorderLayout.NORTH);
+		this.add(this.displayPane, BorderLayout.CENTER);
 		this.pack();
 		this.setLocationRelativeTo(null);
-	}
-
-	@Override
-	public void addAndRepaint(final JComponent component) {
-		this.displayPane.getDisplay()
-			.add(component);
-		this.repaint();
-	}
-
-	@Override
-	public void addAndRepaint(final JComponent component, String position) {
-		this.displayPane.getDisplay()
-			.add(component, position);
-		this.repaint();
 	}
 }
