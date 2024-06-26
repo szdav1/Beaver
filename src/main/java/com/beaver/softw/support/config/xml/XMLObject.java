@@ -27,7 +27,6 @@ public final class XMLObject {
 		if (this.text != null)
 			return this.text.getData()
 				.strip()
-				.replaceAll(" ", "")
 				.replaceAll("\n", "");
 
 		return "";

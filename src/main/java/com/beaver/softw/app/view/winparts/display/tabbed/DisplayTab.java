@@ -10,15 +10,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.beaver.softw.support.appdata.Dimensions;
+import lombok.Getter;
 
 import static com.beaver.softw.support.appdata.Dimensions.GAP;
 
+@Getter
 public final class DisplayTab extends JPanel {
 	private final JLabel titleLabel;
 	private final JButton closeButton;
 
 	public DisplayTab(String title) {
 		this.titleLabel = new JLabel(title);
+		this.titleLabel.setPreferredSize(title.length() > 50 ? Dimensions.N_BUTTON_DIMENSION : null);
 
 		this.closeButton = new JButton("X");
 		this.closeButton.setForeground(Color.red);
@@ -28,8 +31,13 @@ public final class DisplayTab extends JPanel {
 
 		this.setLayout(new BorderLayout());
 		this.setOpaque(false);
-		this.add(this.titleLabel, BorderLayout.CENTER);
+		this.setToolTipText(title);
+		this.add(titleLabel, BorderLayout.CENTER);
 		this.add(this.closeButton, BorderLayout.EAST);
+	}
+
+	public void implementSelectFunction(final TabSelector tabSelector) {
+		this.titleLabel.addMouseListener(tabSelector);
 	}
 
 	public void implementCloseFunction(final TabCloser tabCloser) {

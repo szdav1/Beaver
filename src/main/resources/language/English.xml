@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Language>
+    <Words user="Error">
+        <CouldNotPerformAction>Could not perform requested action.</CouldNotPerformAction>
+    </Words>
+
     <Words user="MenuBar">
         <FileMenu>File</FileMenu>
         <FileMenuOpen>Open</FileMenuOpen>

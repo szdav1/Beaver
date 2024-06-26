@@ -45,8 +45,9 @@ public final class SidebarController extends AbstractController {
 
 		return file.isFile() &&
 			file.exists() &&
+			file.canRead() &&
 			SupportedFileExtensions.getSupportedExtensions()
-			.contains(this.getFileExtensionOfFile(file));
+				.contains(this.getFileExtensionOfFile(file));
 	}
 
 	@Override

@@ -8,6 +8,7 @@ import javax.swing.*;
 
 import com.beaver.softw.app.view.dialog.ErrorDialog;
 import com.beaver.softw.app.view.dialog.ErrorDialogTitle;
+import com.beaver.softw.app.view.window.WindowManager;
 import com.beaver.softw.app.view.winparts.WindowPart;
 import com.beaver.softw.app.view.winparts.display.tabbed.TabbedPane;
 import com.beaver.softw.support.appdata.Dimensions;
@@ -31,7 +32,7 @@ public final class DisplayPane extends JSplitPane implements WindowPart {
 	public void openFileToTab(final String filePath) {
 		File file = new File(filePath);
 
-		if (this.tabbedPane.getTabCount() != 0 && this.tabbedPane.indexOfTab(file.getName()) >= 0)
+		if (this.tabbedPane.getAbsolutePaths().contains(file.getAbsolutePath()))
 			return;
 
 		try (RandomAccessFile reader = new RandomAccessFile(file, "r")) {
@@ -49,10 +50,17 @@ public final class DisplayPane extends JSplitPane implements WindowPart {
 			}
 
 			scrollPane.setViewportView(textArea);
-			this.tabbedPane.addCloseableTab(file.getName(), scrollPane);
+			this.tabbedPane.addCloseableTab(
+				this.tabbedPane.indexOfTab(file.getName()) >= 0 ?
+					file.getAbsolutePath() :
+					file.getName(),
+				file.getAbsolutePath(),
+				scrollPane
+			);
+			WindowManager.repaint();
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.INVALID_FILE_ERROR, exc.getStackTrace());
+			ErrorDialog.display(ErrorDialogTitle.INVALID_FILE_ERROR, exc);
 		}
 	}
 

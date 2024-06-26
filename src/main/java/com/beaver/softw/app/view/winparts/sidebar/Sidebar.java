@@ -35,6 +35,7 @@ public final class Sidebar extends JPanel implements WindowPart {
 		this.fileChooser.setDialogTitle("");
 		this.fileChooser.setMultiSelectionEnabled(false);
 		this.fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		this.fileChooser.setCurrentDirectory(new File("C:\\Users\\Dave\\IdeaProjects\\Beaver\\src\\main\\java\\com\\beaver\\softw\\support"));
 
 		this.setup();
 	}
@@ -58,7 +59,7 @@ public final class Sidebar extends JPanel implements WindowPart {
 
 		File rootFile = this.fileChooser.getSelectedFile();
 
-		if (!rootFile.isDirectory() || !rootFile.exists())
+		if (!rootFile.isDirectory() || !rootFile.exists() || !rootFile.canRead())
 			return;
 
 		DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode(rootFile.getAbsolutePath());

@@ -18,7 +18,7 @@ public final class Configurator {
 			loadSettingsConfiguration(settingsFilePath);
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.SETTINGS_XML_FILE_ERROR, exc.getStackTrace());
+			ErrorDialog.display(ErrorDialogTitle.SETTINGS_XML_FILE_ERROR, exc);
 			return;
 		}
 
@@ -29,7 +29,7 @@ public final class Configurator {
 			UIManager.setLookAndFeel(settings.get("LookAndFeel"));
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.LOOK_AND_FEEL_ERROR, exc.getStackTrace());
+			ErrorDialog.display(ErrorDialogTitle.LOOK_AND_FEEL_ERROR, exc);
 		}
 	}
 
@@ -51,7 +51,7 @@ public final class Configurator {
 			Language.init(languageReader.getData());
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.LANGUAGE_XML_FILE_ERROR, exc.getStackTrace());
+			ErrorDialog.display(ErrorDialogTitle.LANGUAGE_XML_FILE_ERROR, exc);
 		}
 	}
 
@@ -67,7 +67,7 @@ public final class Configurator {
 			SupportedFileExtensions.init(supportedFileExtensionsReader.getData());
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.SUPPORTED_FILE_EXTENSIONS, exc.getStackTrace());
+			ErrorDialog.display(ErrorDialogTitle.SUPPORTED_FILE_EXTENSIONS, exc);
 		}
 	}
 }
