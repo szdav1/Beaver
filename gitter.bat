@@ -8,6 +8,8 @@ if not defined mode goto mnsel
 
 if %mode%==--up goto pushl
 
+if %mode%==--dwn goto pulll
+
 :pushl
 SET msg=%2
 SET branch=%3
@@ -19,6 +21,16 @@ if not defined branch goto branchndel
 git add .
 git commit -m %msg%
 git push origin %branch%
+goto exitl
+
+:pulll
+SET branch=%2
+
+if not defined branch goto branchndel
+
+git add .
+git commit -m "Committing before pushing."
+git pull origin %branch%
 goto exitl
 
 :msgndel
