@@ -1,7 +1,7 @@
 @REM Gitter Version 1.5.0
 @echo off
 cls
-echo Gitter V.1.5.0
+echo Gitter V.2.0.1
 SET mode=%1
 
 if not defined mode goto mnsel
@@ -9,6 +9,8 @@ if not defined mode goto mnsel
 if %mode%==--up goto pushl
 
 if %mode%==--dwn goto pulll
+
+if %mode%==--dwn-ovr goto pullhardl
 
 :pushl
 SET msg=%2
@@ -33,6 +35,15 @@ git commit -m "Committing before pushing."
 git pull origin %branch%
 goto exitl
 
+:pullhardl
+SET branch=%2
+
+if not defined branch goto branchndel
+
+git fetch --all
+git reset --hard origin/%branch%
+goto exitl
+
 :msgndel
 echo Commit message not specified.
 goto exitl
@@ -42,7 +53,7 @@ echo Branch not specified.
 goto exitl
 
 :mnsel
-echo Mode not specified. Use --up, --dwn or --dwn-hard.
+echo Mode not specified. Use --up, --dwn or --dwn-ovr.
 goto exitl
 
 :exitl
