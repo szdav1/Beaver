@@ -2,6 +2,7 @@
 @echo off
 cls
 echo Gitter V.2.0.1
+echo ==============
 SET mode=%1
 
 if not defined mode goto mnsel
@@ -20,6 +21,8 @@ if not defined msg goto msgndel
 
 if not defined branch goto branchndel
 
+echo >> Pushing to %branch%
+
 git add .
 git commit -m %msg%
 git push origin %branch%
@@ -30,6 +33,8 @@ SET branch=%2
 
 if not defined branch goto branchndel
 
+echo << Pulling from %branch%...
+
 git add .
 git commit -m "Committing before pushing."
 git pull origin %branch%
@@ -39,6 +44,8 @@ goto exitl
 SET branch=%2
 
 if not defined branch goto branchndel
+
+echo << Overriding from %branch%...
 
 git fetch --all
 git reset --hard origin/%branch%
