@@ -36,7 +36,7 @@ if not defined branch goto branchndel
 echo << Pulling from %branch%...
 
 git add .
-git commit -m "Committing before pushing."
+git commit -m "Committing before pulling."
 git pull origin %branch%
 goto exitl
 
