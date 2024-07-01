@@ -1,5 +1,9 @@
 package com.beaver.softw.app.view.window;
 
+import javax.swing.JOptionPane;
+
+import com.beaver.softw.support.config.Language;
+
 public final class WindowManager {
 	private static Window window;
 	private static boolean initialized = false;
@@ -22,4 +26,18 @@ public final class WindowManager {
 		window.repaint();
 	}
 
+	public static WindowStage getStage() {
+		return window.getStage();
+	}
+
+	public static void setStage(final WindowStage stage) {
+		window.setStage(stage);
+	}
+
+	public static void showExitConfirmationWindow() {
+		if (JOptionPane.showConfirmDialog(null, Language.get("Question.ConfirmExit"), Language.get("Question.ConfirmExitTitle"), JOptionPane.YES_NO_OPTION) == 0) {
+			window.dispose();
+			System.exit(0);
+		}
+	}
 }

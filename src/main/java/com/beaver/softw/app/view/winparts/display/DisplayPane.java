@@ -45,7 +45,12 @@ public final class DisplayPane extends JSplitPane implements WindowPart {
 			scrollPane.setPreferredSize(Dimensions.WINDOW_DIMENSION);
 
 			while (line != null) {
-				textArea.setText(textArea.getText()+line+"\n");
+				textArea.setText(
+					new StringBuilder(textArea.getText())
+						.append(line)
+						.append("\n")
+						.toString()
+				);
 				line = reader.readLine();
 			}
 

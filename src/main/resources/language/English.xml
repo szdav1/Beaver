@@ -4,9 +4,17 @@
         <CouldNotPerformAction>Could not perform requested action.</CouldNotPerformAction>
     </Words>
 
+    <Words user="Question">
+        <ConfirmExitTitle>Exit</ConfirmExitTitle>
+        <ConfirmExit>Exit application?</ConfirmExit>
+    </Words>
+
     <Words user="MenuBar">
         <FileMenu>File</FileMenu>
         <FileMenuOpen>Open</FileMenuOpen>
+        <FileMenuSave>Save</FileMenuSave>
+        <FileMenuSaveAs>Save As</FileMenuSaveAs>
+        <FileMenuExit>Exit</FileMenuExit>
 
         <SettingsMenu>Settings</SettingsMenu>
         <SettingsMenuAppearance>Appearance</SettingsMenuAppearance>

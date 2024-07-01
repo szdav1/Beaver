@@ -4,23 +4,27 @@ import java.awt.event.ActionEvent;
 
 import com.beaver.softw.app.control.AbstractController;
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
+import com.beaver.softw.app.view.window.WindowManager;
 import com.beaver.softw.app.view.winparts.menu.MenuBar;
 import com.beaver.softw.app.view.winparts.menu.MenuItem;
-import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 public final class MenuBarController extends AbstractController {
-	private final MenuBar menuBar;
+	public MenuBarController(final MenuBar menuBar) {
+		new MenuBarKeyActions(menuBar);
+	}
 
 	private void handleFileMenuActions(final MenuItem menuItem) {
+		// TODO: Look out for the indexes!
 		switch (menuItem.getItemIndex()) {
 			case 0 -> ComponentCommunicationInterface.requestMethodInvocationOn("sidebar", "constructTreeStructure");
+			case 1 -> WindowManager.showExitConfirmationWindow();
 		}
 	}
 
 	private void handleSettingsMenuActions(final MenuItem menuItem) {
 		switch (menuItem.getItemIndex()) {
-			case 0 -> {}
+			case 0 -> {
+			}
 		}
 	}
 

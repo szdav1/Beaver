@@ -3,6 +3,10 @@ package com.beaver.softw.support.appdata;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public final class Dimensions {
 	public static final Dimension SCREEN_SIZE = Toolkit.getDefaultToolkit()
 		.getScreenSize();
@@ -35,7 +39,4 @@ public final class Dimensions {
 	public static final int TOOL_BAR_WIDTH = WINDOW_WIDTH;
 	public static final int TOOL_BAR_HEIGHT = BUTTON_HEIGHT;
 	public static final Dimension TOOL_BAR_DIMENSIONS = new Dimension(TOOL_BAR_WIDTH, TOOL_BAR_HEIGHT);
-
-	private Dimensions() {
-	}
 }

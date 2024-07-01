@@ -34,6 +34,7 @@ public final class TabbedPane extends JTabbedPane {
 		this.absolutePaths.add(toolTip);
 		this.addTab(tabTitle, component);
 		this.setTabComponentAt(this.indexOfTab(tabTitle), displayTab);
+		this.setSelectedIndex(this.indexOfTab(tabTitle));
 		WindowManager.repaint();
 	}
 }
