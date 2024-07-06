@@ -26,15 +26,16 @@ public abstract class AbstractWindow extends JFrame {
 		this.stage = WindowStage.NORMAL;
 
 		// Default JFrame setup code (Boilerplate code)
-		this.setSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
-		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		this.addWindowListener(new WindowController());
-		this.setContentPane(this.contentPane);
-		this.setLayout(new BorderLayout());
-		this.setLocationRelativeTo(null);
-		this.setAutoRequestFocus(true);
-		this.setIconImage(image);
-		this.setTitle(title);
-
+		{
+			this.setSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
+			this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			this.addWindowListener(new WindowController());
+			this.setContentPane(this.contentPane);
+			this.setLayout(new BorderLayout());
+			this.setLocationRelativeTo(null);
+			this.setAutoRequestFocus(true);
+			this.setIconImage(image);
+			this.setTitle(title);
+		}
 	}
 }

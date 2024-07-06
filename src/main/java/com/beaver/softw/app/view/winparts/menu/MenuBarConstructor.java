@@ -9,7 +9,7 @@ public final class MenuBarConstructor {
 	private final MenuBar menuBar;
 	private AbstractController controller;
 
-	public MenuBarConstructor(MenuBar menuBar) {
+	public MenuBarConstructor(final MenuBar menuBar) {
 		this.menuBar = menuBar;
 	}
 
@@ -17,6 +17,10 @@ public final class MenuBarConstructor {
 		this.controller = controller;
 
 		return this;
+	}
+
+	public void notifyController() {
+		this.controller.getNotified();
 	}
 
 	public MenuBarConstructor addMenus(final String... menuTitles) {

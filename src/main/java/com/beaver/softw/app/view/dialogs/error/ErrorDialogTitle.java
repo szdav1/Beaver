@@ -1,4 +1,4 @@
-package com.beaver.softw.app.view.dialog;
+package com.beaver.softw.app.view.dialogs.error;
 
 import lombok.Getter;
 

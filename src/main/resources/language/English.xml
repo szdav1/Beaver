@@ -18,9 +18,17 @@
 
         <SettingsMenu>Settings</SettingsMenu>
         <SettingsMenuAppearance>Appearance</SettingsMenuAppearance>
+        <SettingsMenuLanguage>Language</SettingsMenuLanguage>
+
+        <WindowMenu>Window</WindowMenu>
+        <WindowMenuResetWindow>Reset Window</WindowMenuResetWindow>
     </Words>
 
     <Words user="Sidebar">
         <Title>Project Structure</Title>
+    </Words>
+
+    <Words user="Dialogs">
+        <AppearanceSettingsTitle>Appearance Settings</AppearanceSettingsTitle>
     </Words>
 </Language>

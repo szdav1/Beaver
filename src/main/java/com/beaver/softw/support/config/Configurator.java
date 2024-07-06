@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 import javax.swing.UIManager;
 
-import com.beaver.softw.app.view.dialog.ErrorDialog;
-import com.beaver.softw.app.view.dialog.ErrorDialogTitle;
+import com.beaver.softw.app.view.dialogs.error.ErrorDialog;
+import com.beaver.softw.app.view.dialogs.error.ErrorDialogTitle;
 import com.beaver.softw.support.config.xml.LanguageReader;
 import com.beaver.softw.support.config.xml.SettingsReader;
 import com.beaver.softw.support.config.xml.SupportedFileExtensionsReader;

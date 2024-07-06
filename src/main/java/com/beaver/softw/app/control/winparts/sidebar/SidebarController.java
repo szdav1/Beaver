@@ -48,6 +48,10 @@ public final class SidebarController extends AbstractController {
 	}
 
 	@Override
+	public void getNotified() {
+	}
+
+	@Override
 	public void mouseClicked(MouseEvent e) {
 		JTree pt = sidebar.getProjectTree();
 		TreePath stp = pt.getSelectionPath();

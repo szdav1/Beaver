@@ -9,8 +9,15 @@ import com.beaver.softw.app.view.winparts.menu.MenuBar;
 import com.beaver.softw.app.view.winparts.menu.MenuItem;
 
 public final class MenuBarController extends AbstractController {
+	private final MenuBar menuBar;
+
 	public MenuBarController(final MenuBar menuBar) {
-		new MenuBarKeystrokesController(menuBar);
+		this.menuBar = menuBar;
+	}
+
+	@Override
+	public void getNotified() {
+		new MenuBarKeystrokesController(this.menuBar);
 	}
 
 	private void handleFileMenuActions(final MenuItem menuItem) {
@@ -23,8 +30,14 @@ public final class MenuBarController extends AbstractController {
 
 	private void handleSettingsMenuActions(final MenuItem menuItem) {
 		switch (menuItem.getItemIndex()) {
-			case 0 -> {
-			}
+			case 0 -> WindowManager.showAppearanceSettingsDialog();
+			case 1 -> System.out.println("Language");
+		}
+	}
+
+	private void handleWindowMenuActions(final MenuItem menuItem) {
+		switch (menuItem.getItemIndex()) {
+			case 0 -> WindowManager.resetWindow();
 		}
 	}
 
@@ -34,6 +47,7 @@ public final class MenuBarController extends AbstractController {
 			switch (menuItem.getMenuIndex()) {
 				case 0 -> this.handleFileMenuActions(menuItem);
 				case 1 -> this.handleSettingsMenuActions(menuItem);
+				case 2 -> this.handleWindowMenuActions(menuItem);
 			}
 		}
 	}

@@ -39,4 +39,8 @@ public final class Dimensions {
 	public static final int TOOL_BAR_WIDTH = WINDOW_WIDTH;
 	public static final int TOOL_BAR_HEIGHT = BUTTON_HEIGHT;
 	public static final Dimension TOOL_BAR_DIMENSIONS = new Dimension(TOOL_BAR_WIDTH, TOOL_BAR_HEIGHT);
+
+	public static final int DIALOG_WIDTH = ph.calculate(50);
+	public static final int DIALOG_HEIGHT = ph.calculate(50, 'h');
+	public static final Dimension DIALOG_DIMENSION = new Dimension(DIALOG_WIDTH, DIALOG_HEIGHT);
 }

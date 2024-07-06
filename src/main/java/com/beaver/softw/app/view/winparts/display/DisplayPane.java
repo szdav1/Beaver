@@ -6,8 +6,8 @@ import java.io.RandomAccessFile;
 
 import javax.swing.*;
 
-import com.beaver.softw.app.view.dialog.ErrorDialog;
-import com.beaver.softw.app.view.dialog.ErrorDialogTitle;
+import com.beaver.softw.app.view.dialogs.error.ErrorDialog;
+import com.beaver.softw.app.view.dialogs.error.ErrorDialogTitle;
 import com.beaver.softw.app.view.window.WindowManager;
 import com.beaver.softw.app.view.winparts.WindowPart;
 import com.beaver.softw.app.view.winparts.display.tabbed.TabbedPane;

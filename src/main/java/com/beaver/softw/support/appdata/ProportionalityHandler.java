@@ -8,7 +8,7 @@ final class ProportionalityHandler {
 	@Setter
 	private Dimension proportionalityFactor;
 
-	public ProportionalityHandler(Dimension proportionalityFactor) {
+	public ProportionalityHandler(final Dimension proportionalityFactor) {
 		this.proportionalityFactor = proportionalityFactor;
 	}
 

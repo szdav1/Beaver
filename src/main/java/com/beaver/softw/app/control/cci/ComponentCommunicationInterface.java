@@ -3,8 +3,8 @@ package com.beaver.softw.app.control.cci;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import com.beaver.softw.app.view.dialog.ErrorDialog;
-import com.beaver.softw.app.view.dialog.ErrorDialogTitle;
+import com.beaver.softw.app.view.dialogs.error.ErrorDialog;
+import com.beaver.softw.app.view.dialogs.error.ErrorDialogTitle;
 import com.beaver.softw.app.view.window.Window;
 
 public final class ComponentCommunicationInterface {

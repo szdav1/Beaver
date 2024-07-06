@@ -14,10 +14,12 @@ public final class MenuBar extends JMenuBar implements WindowPart {
 	public MenuBar() {
 		new MenuBarConstructor(this)
 			.setController(new MenuBarController(this))
-			.addMenus("MenuBar.FileMenu", "MenuBar.SettingsMenu")
+			.addMenus("MenuBar.FileMenu", "MenuBar.SettingsMenu", "MenuBar.WindowMenu")
 			.addMenuItems(0, "MenuBar.FileMenuOpen", "MenuBar.FileMenuExit")
 			.addShortcutKeysToMenuItems(0, "F1", "ESCAPE")
-			.addMenuItems(1, "MenuBar.SettingsMenuAppearance");
+			.addMenuItems(1, "MenuBar.SettingsMenuAppearance", "MenuBar.SettingsMenuLanguage")
+			.addMenuItems(2, "MenuBar.WindowMenuResetWindow")
+			.notifyController();
 
 		this.setup();
 	}

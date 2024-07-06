@@ -40,4 +40,13 @@ public final class WindowManager {
 			System.exit(0);
 		}
 	}
+
+	public static void resetWindow() {
+		window.resetToolbar();
+	}
+
+	public static void showAppearanceSettingsDialog() {
+		window.getAppearanceSettingsDialog()
+			.setVisible(true);
+	}
 }

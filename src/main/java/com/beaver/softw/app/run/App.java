@@ -1,6 +1,6 @@
 package com.beaver.softw.app.run;
 
-import com.beaver.softw.app.view.dialog.ErrorDialog;
+import com.beaver.softw.app.view.dialogs.error.ErrorDialog;
 import com.beaver.softw.app.view.window.Window;
 import com.beaver.softw.support.config.Configurator;
 

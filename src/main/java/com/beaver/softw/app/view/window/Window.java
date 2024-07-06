@@ -3,11 +3,15 @@ package com.beaver.softw.app.view.window;
 import java.awt.BorderLayout;
 import java.awt.Image;
 
+import javax.swing.SwingConstants;
+
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
+import com.beaver.softw.app.view.dialogs.settings.AppearanceSettingsDialog;
 import com.beaver.softw.app.view.winparts.display.DisplayPane;
 import com.beaver.softw.app.view.winparts.menu.MenuBar;
 import com.beaver.softw.app.view.winparts.sidebar.Sidebar;
 import com.beaver.softw.app.view.winparts.toolbar.ToolBar;
+import lombok.AccessLevel;
 import lombok.Getter;
 
 public final class Window extends AbstractWindow {
@@ -16,6 +20,9 @@ public final class Window extends AbstractWindow {
 	private final Sidebar sidebar;
 	@Getter
 	private final DisplayPane displayPane;
+
+	@Getter(AccessLevel.PACKAGE)
+	private final AppearanceSettingsDialog appearanceSettingsDialog;
 
 	public Window(Image image, String title) {
 		super(image, title);
@@ -29,14 +36,29 @@ public final class Window extends AbstractWindow {
 		this.displayPane = new DisplayPane();
 		this.displayPane.setLeftComponent(this.sidebar);
 
+		this.appearanceSettingsDialog = new AppearanceSettingsDialog();
+
 		this.constructWindowStructure();
 		this.setVisible(true);
 		this.repaint();
 	}
 
-	private void constructWindowStructure() {
-		this.setJMenuBar(this.menuBar);
+	void addToolbar() {
 		this.add(this.toolBar, BorderLayout.NORTH);
+		this.repaint();
+	}
+
+	void resetToolbar() {
+		this.remove(this.toolBar);
+		this.toolBar.setOrientation(SwingConstants.HORIZONTAL);
+		this.add(this.toolBar, BorderLayout.NORTH);
+		this.repaint();
+		this.revalidate();
+	}
+
+	void constructWindowStructure() {
+		this.setJMenuBar(this.menuBar);
+		this.addToolbar();
 		this.add(this.displayPane, BorderLayout.CENTER);
 		this.pack();
 		this.setLocationRelativeTo(null);
