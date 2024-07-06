@@ -1,7 +1,8 @@
-@REM Gitter Version 1.5.0
+@REM Gitter Version V.2.0.1
 @echo off
 cls
-echo  Gitter V.2.0.1
+set version=Gitter V.2.0.1
+echo  %version%
 echo ================
 SET mode=%1
 
@@ -86,14 +87,19 @@ goto exitl
 
 :msgndel
 echo Commit message not specified.
+echo Use "help" or "?" arguments for help.
 goto exitl
 
 :branchndel
 echo Branch not specified.
+echo Use "help" or "?" arguments for help.
 goto exitl
 
 :mnsel
 echo Mode not specified. Use --up, --dwn or --dwn-ovr.
+echo Use "help" or "?" arguments for help.
 goto exitl
 
 :exitl
+echo(
+echo %version% process finished.
