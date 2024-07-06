@@ -8,16 +8,17 @@ import javax.swing.JComponent;
 import javax.swing.JMenu;
 import javax.swing.KeyStroke;
 
+import com.beaver.softw.app.control.AbstractKeystrokesController;
 import com.beaver.softw.app.control.cci.ComponentCommunicationInterface;
 import com.beaver.softw.app.view.window.WindowManager;
 import com.beaver.softw.app.view.window.WindowStage;
 import com.beaver.softw.app.view.winparts.menu.MenuBar;
 import com.beaver.softw.app.view.winparts.menu.MenuItem;
 
-public final class MenuBarKeyActions {
+public final class MenuBarKeystrokesController extends AbstractKeystrokesController {
 	private final MenuBar menuBar;
 
-	public MenuBarKeyActions(final MenuBar menuBar) {
+	public MenuBarKeystrokesController(final MenuBar menuBar) {
 		this.menuBar = menuBar;
 
 		String[] fileMenuActionNames = {"OpenProjectAction", "ExitApplicationAction"};
@@ -38,7 +39,8 @@ public final class MenuBarKeyActions {
 		});
 	}
 
-	private void setupShortcutKeyAction(String keyString, String actionName, AbstractAction action) {
+	@Override
+	protected void setupShortcutKeyAction(String keyString, String actionName, final AbstractAction action) {
 		this.menuBar.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(keyString), actionName);
 		this.menuBar.getActionMap().put(actionName, action);
 	}

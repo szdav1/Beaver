@@ -10,7 +10,7 @@ import com.beaver.softw.app.view.winparts.menu.MenuItem;
 
 public final class MenuBarController extends AbstractController {
 	public MenuBarController(final MenuBar menuBar) {
-		new MenuBarKeyActions(menuBar);
+		new MenuBarKeystrokesController(menuBar);
 	}
 
 	private void handleFileMenuActions(final MenuItem menuItem) {

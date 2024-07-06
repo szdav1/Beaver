@@ -13,11 +13,11 @@ import com.beaver.softw.support.appdata.Dimensions;
 public final class MenuBar extends JMenuBar implements WindowPart {
 	public MenuBar() {
 		new MenuBarConstructor(this)
+			.setController(new MenuBarController(this))
 			.addMenus("MenuBar.FileMenu", "MenuBar.SettingsMenu")
 			.addMenuItems(0, "MenuBar.FileMenuOpen", "MenuBar.FileMenuExit")
 			.addShortcutKeysToMenuItems(0, "F1", "ESCAPE")
-			.addMenuItems(1, "MenuBar.SettingsMenuAppearance")
-			.setController(new MenuBarController(this));
+			.addMenuItems(1, "MenuBar.SettingsMenuAppearance");
 
 		this.setup();
 	}

@@ -13,9 +13,10 @@ public final class MenuBarConstructor {
 		this.menuBar = menuBar;
 	}
 
-	public void setController(final AbstractController controller) {
+	public MenuBarConstructor setController(final AbstractController controller) {
 		this.controller = controller;
 
+		return this;
 	}
 
 	public MenuBarConstructor addMenus(final String... menuTitles) {
