@@ -28,8 +28,10 @@ public final class Dimensions {
 	public static final Dimension SIDEBAR_DIMENSION = new Dimension(SIDEBAR_WIDTH, SIDEBAR_HEIGHT);
 
 	public static final int N_BUTTON_WIDTH = ph.calculate(15);
+	public static final int BUTTON_WIDTH = ph.calculate(23);
 	public static final int BUTTON_HEIGHT = MENU_HEIGHT;
 	public static final Dimension N_BUTTON_DIMENSION = new Dimension(N_BUTTON_WIDTH, BUTTON_HEIGHT);
+	public static final Dimension BUTTON_DIMENSION = new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT);
 
 	public static final int CONTENT_WIDTH = WINDOW_WIDTH;
 	public static final int CONTENT_HEIGHT = WINDOW_HEIGHT;

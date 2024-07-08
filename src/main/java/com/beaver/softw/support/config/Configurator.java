@@ -67,7 +67,6 @@ public final class Configurator {
 			SupportedFileExtensions.init(supportedFileExtensionsReader.getData());
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.SUPPORTED_FILE_EXTENSIONS, exc);
 		}
 	}
 }

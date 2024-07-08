@@ -12,4 +12,6 @@ public abstract class AbstractDialog extends JDialog {
 		this.setAlwaysOnTop(true);
 		this.setAutoRequestFocus(true);
 	}
+
+	protected abstract void constructDialogStructure();
 }

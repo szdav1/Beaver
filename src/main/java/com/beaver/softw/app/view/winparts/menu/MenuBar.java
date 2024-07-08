@@ -18,6 +18,7 @@ public final class MenuBar extends JMenuBar implements WindowPart {
 			.addMenuItems(0, "MenuBar.FileMenuOpen", "MenuBar.FileMenuExit")
 			.addShortcutKeysToMenuItems(0, "F1", "ESCAPE")
 			.addMenuItems(1, "MenuBar.SettingsMenuAppearance", "MenuBar.SettingsMenuLanguage")
+			.addShortcutKeysToMenuItems(1, "F2")
 			.addMenuItems(2, "MenuBar.WindowMenuResetWindow")
 			.notifyController();
 

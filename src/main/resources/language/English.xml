@@ -29,6 +29,11 @@
     </Words>
 
     <Words user="Dialogs">
+        <ApplyButton>Apply</ApplyButton>
+
         <AppearanceSettingsTitle>Appearance Settings</AppearanceSettingsTitle>
+        <AppearanceSettingsDescription>Select the desired Look and Feel</AppearanceSettingsDescription>
+        <AppearanceSettingsInformation>Note that changes will only apply after restart!</AppearanceSettingsInformation>
+
     </Words>
 </Language>

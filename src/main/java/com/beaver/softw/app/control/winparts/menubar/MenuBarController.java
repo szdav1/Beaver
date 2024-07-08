@@ -21,7 +21,6 @@ public final class MenuBarController extends AbstractController {
 	}
 
 	private void handleFileMenuActions(final MenuItem menuItem) {
-		// TODO: Look out for the indexes!
 		switch (menuItem.getItemIndex()) {
 			case 0 -> ComponentCommunicationInterface.requestMethodInvocationOn("sidebar", "constructTreeStructure");
 			case 1 -> WindowManager.showExitConfirmationWindow();

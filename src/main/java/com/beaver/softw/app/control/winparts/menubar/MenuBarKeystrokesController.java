@@ -23,6 +23,8 @@ public final class MenuBarKeystrokesController extends AbstractKeystrokesControl
 
 		String[] fileMenuActionNames = {"OpenProjectAction", "ExitApplicationAction"};
 		AbstractAction[] fileMenuActions = {new OpenProjectAction(), new ExitApplicationAction()};
+		String[] settingsMenuActionNames = {"OpenAppearanceSettingsAction"};
+		AbstractAction[] settingsMenuActions = {new OpenAppearanceSettingsAction()};
 		List<JMenu> menus = menuBar.getMenus();
 
 		menus.forEach(menu -> {
@@ -31,9 +33,10 @@ public final class MenuBarKeystrokesController extends AbstractKeystrokesControl
 			menuItems.forEach(menuItem -> {
 				int index = menuItems.indexOf(menuItem);
 
-				// TODO: Create the actions for the settings menus too
+				// TODO: Fix settings menu index out of bounds error
 				switch (menus.indexOf(menu)) {
 					case 0 -> this.setupShortcutKeyAction(menuItem.getShortcutKeyString(), fileMenuActionNames[index], fileMenuActions[index]);
+					case 1 -> this.setupShortcutKeyAction(menuItem.getShortcutKeyString(), settingsMenuActionNames[0], settingsMenuActions[0]);
 				}
 			});
 		});
@@ -58,6 +61,14 @@ public final class MenuBarKeystrokesController extends AbstractKeystrokesControl
 		public void actionPerformed(ActionEvent e) {
 			if (WindowManager.getStage() == WindowStage.NORMAL)
 				WindowManager.showExitConfirmationWindow();
+		}
+	}
+
+	private static final class OpenAppearanceSettingsAction extends AbstractAction {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (WindowManager.getStage() == WindowStage.NORMAL)
+				WindowManager.showAppearanceSettingsDialog();
 		}
 	}
 }

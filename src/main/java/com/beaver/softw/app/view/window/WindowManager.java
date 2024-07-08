@@ -54,8 +54,10 @@ public final class WindowManager {
 	}
 
 	public static void showAppearanceSettingsDialog() {
+		setStage(WindowStage.DISABLED);
 		disableWindow();
 		window.getAppearanceSettingsDialog()
+			.reset()
 			.setVisible(true);
 	}
 }
