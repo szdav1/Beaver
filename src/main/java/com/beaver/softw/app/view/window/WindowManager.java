@@ -45,7 +45,16 @@ public final class WindowManager {
 		window.resetToolbar();
 	}
 
+	public static void disableWindow() {
+		window.setEnabled(false);
+	}
+
+	public static void enableWindow() {
+		window.setEnabled(true);
+	}
+
 	public static void showAppearanceSettingsDialog() {
+		disableWindow();
 		window.getAppearanceSettingsDialog()
 			.setVisible(true);
 	}
