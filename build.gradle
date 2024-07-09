@@ -33,7 +33,7 @@ test {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.beaver.softw.run.Main'
+                'Main-Class': 'com.beaver.softw.app.run.Main'
         )
     }
 }
