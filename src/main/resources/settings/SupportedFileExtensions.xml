@@ -10,5 +10,6 @@
         <Html>html</Html>
         <Css>css</Css>
         <Js>js</Js>
+        <Bat>bat</Bat>
     </Extension>
 </SupportedFileExtensions>

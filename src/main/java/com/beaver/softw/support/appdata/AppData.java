@@ -21,5 +21,5 @@ public final class AppData {
 		"com.jtattoo.plaf.smart.SmartLookAndFeel",
 		"com.jtattoo.plaf.texture.TextureLookAndFeel"
 	};
-	public static final String[] DEFAULT_SUPPORTED_FILE_EXTENSIONS = {"java", "xml", "md", "txt", "json", "gradle", "html", "css", "js"};
+	public static final String[] DEFAULT_SUPPORTED_FILE_EXTENSIONS = {"java", "xml", "md", "txt", "json", "gradle", "html", "css", "js", "bat"};
 }
