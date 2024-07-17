@@ -1,7 +1,7 @@
-@REM Gitter Version V.2.0.6
+@REM Gitter Version V.2.1.2
 @echo off
 cls
-set version=Gitter V.2.0.6
+set version=Gitter V.2.1.2
 echo  %version%
 echo ================
 set mode=%1
@@ -26,7 +26,7 @@ if not defined msg goto msgndel
 
 if not defined branch goto branchndel
 
-echo Are you sure you want to perform the following method with the specified parameters?
+echo Perform push with specified parameters?
 echo Branch: %branch%
 echo Message: %msg%
 set /p answ=(y/n)
@@ -108,7 +108,7 @@ echo Use "help" or "?" arguments for help.
 goto exitl
 
 :changel
-set /p answ=Perform changes? (y/n)
+set /p answ=Perform changes to parameters? (y/n)
 
 if not defined answ goto changel
 
