@@ -4,7 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum XMLReaderConfiguration {
-	SETTINGS_READER("Setting", ""),
+	LOOK_AND_FEEL_READER("SelectedLookAndFeel", ""),
+	LANGUAGE_SPECIFIER_READER("SelectedLanguage", ""),
 	LANGUAGE_READER("Words", "user"),
 	SUPPORTED_FILE_EXTENSION_READER("Extension", "");
 

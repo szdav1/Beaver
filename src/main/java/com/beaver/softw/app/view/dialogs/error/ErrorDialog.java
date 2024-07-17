@@ -9,7 +9,7 @@ public final class ErrorDialog {
 	@Getter
 	private static boolean displayed = false;
 
-	public static void display(ErrorDialogTitle title, final Exception exception) {
+	public static void displayError(ErrorDialogTitle title, final Exception exception) {
 		StringBuilder stringBuilder = new StringBuilder();
 		StackTraceElement[] stackTraceElements = exception.getStackTrace();
 
@@ -26,8 +26,9 @@ public final class ErrorDialog {
 			title.getTitle(),
 			JOptionPane.ERROR_MESSAGE
 		);
+	}
 
-		if (title == ErrorDialogTitle.SETTINGS_XML_FILE_ERROR)
-			displayed = true;
+	public static void displayWarning(ErrorDialogTitle title, String message) {
+		JOptionPane.showMessageDialog(null, message, title.getTitle(), JOptionPane.WARNING_MESSAGE);
 	}
 }

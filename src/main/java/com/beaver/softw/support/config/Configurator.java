@@ -1,72 +1,67 @@
 package com.beaver.softw.support.config;
 
-import java.util.HashMap;
-
 import javax.swing.UIManager;
 
 import com.beaver.softw.app.view.dialogs.error.ErrorDialog;
 import com.beaver.softw.app.view.dialogs.error.ErrorDialogTitle;
+import com.beaver.softw.support.appdata.AppData;
 import com.beaver.softw.support.config.xml.LanguageReader;
-import com.beaver.softw.support.config.xml.SettingsReader;
+import com.beaver.softw.support.config.xml.LanguageSpecifierReader;
+import com.beaver.softw.support.config.xml.LookAndFeelReader;
 import com.beaver.softw.support.config.xml.SupportedFileExtensionsReader;
 
 public final class Configurator {
-	private static HashMap<String, String> settings;
-
 	public static void configure(final String settingsFilePath) {
-		try {
-			loadSettingsConfiguration(settingsFilePath);
-		}
-		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.SETTINGS_XML_FILE_ERROR, exc);
-			return;
-		}
-
+		loadLookAndFeelConfiguration();
 		loadLanguageConfiguration();
 		loadSupportedFileExtensionsConfiguration();
-
-		try {
-			UIManager.setLookAndFeel(settings.get("LookAndFeel"));
-		}
-		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.LOOK_AND_FEEL_ERROR, exc);
-		}
 	}
 
-	private static void loadSettingsConfiguration(final String settingsFilePath) throws Exception {
-		SettingsReader settingsReader = new SettingsReader();
-		settingsReader.readFromXML(settingsFilePath);
-		settings = settingsReader.getData();
+	private static void loadLookAndFeelConfiguration() {
+		try {
+			LookAndFeelReader lookAndFeelReader = new LookAndFeelReader();
+			lookAndFeelReader.readFromXML(AppData.LOOK_AND_FEEL_XML_LOCATION);
+
+			UIManager.setLookAndFeel(
+				lookAndFeelReader.getData()
+					.get("LookAndFeel")
+			);
+		}
+		catch (Exception exc) {
+			ErrorDialog.displayError(ErrorDialogTitle.LOOK_AND_FEEL_ERROR, exc);
+		}
 	}
 
 	private static void loadLanguageConfiguration() {
 		try {
+			LanguageSpecifierReader languageSpecifierReader = new LanguageSpecifierReader();
+			languageSpecifierReader.readFromXML(AppData.LANGUAGE_SPECIFIER_XML_LOCATION);
+
 			LanguageReader languageReader = new LanguageReader();
 			languageReader.readFromXML(
-				new StringBuilder()
-					.append("/language/")
-					.append(settings.get("Language"))
+				new StringBuilder(AppData.LANGUAGE_FOLDER_LOCATION)
+					.append(
+						languageSpecifierReader.getData()
+							.get("Language")
+					)
 					.toString()
 			);
+
 			Language.init(languageReader.getData());
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.LANGUAGE_XML_FILE_ERROR, exc);
+			ErrorDialog.displayError(ErrorDialogTitle.LANGUAGE_XML_FILE_ERROR, exc);
 		}
 	}
 
 	private static void loadSupportedFileExtensionsConfiguration() {
 		try {
 			SupportedFileExtensionsReader supportedFileExtensionsReader = new SupportedFileExtensionsReader();
-			supportedFileExtensionsReader.readFromXML(
-				new StringBuilder()
-					.append("/settings/")
-					.append(settings.get("SupportedFileExtensions"))
-					.toString()
-			);
+			supportedFileExtensionsReader.readFromXML(AppData.SUPPORTED_FILE_EXTENSIONS_XML_LOCATION);
 			SupportedFileExtensions.init(supportedFileExtensionsReader.getData());
 		}
 		catch (Exception exc) {
+			ErrorDialog.displayWarning(ErrorDialogTitle.SUPPORTED_FILE_EXTENSIONS_WARNING, "Default supported file extensions are used.");
 		}
 	}
 }

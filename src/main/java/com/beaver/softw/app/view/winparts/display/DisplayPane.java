@@ -63,7 +63,7 @@ public final class DisplayPane extends JSplitPane implements WindowPart {
 			WindowManager.repaint();
 		}
 		catch (Exception exc) {
-			ErrorDialog.display(ErrorDialogTitle.INVALID_FILE_ERROR, exc);
+			ErrorDialog.displayError(ErrorDialogTitle.INVALID_FILE_ERROR, exc);
 		}
 	}
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Settings>
-    <Setting>
+<LookAndFeel>
+    <SelectedLookAndFeel>
         <!--
         javax.swing.plaf.metal.MetalLookAndFeel
         javax.swing.plaf.nimbus.NimbusLookAndFeel
@@ -13,8 +13,6 @@
         com.jtattoo.plaf.noire.NoireLookAndFeel
         com.jtattoo.plaf.acryl.AcrylLookAndFeel
         -->
-        <LookAndFeel>com.jtattoo.plaf.noire.NoireLookAndFeel</LookAndFeel>
-        <Language>English.xml</Language>
-        <SupportedFileExtensions>SupportedFileExtensions.xml</SupportedFileExtensions>
-    </Setting>
-</Settings>
+        <LookAndFeel>javax.swing.plaf.nimbus.NimbusLookAndFeel</LookAndFeel>
+    </SelectedLookAndFeel>
+</LookAndFeel>

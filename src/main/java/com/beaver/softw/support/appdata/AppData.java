@@ -22,4 +22,8 @@ public final class AppData {
 		"com.jtattoo.plaf.texture.TextureLookAndFeel"
 	};
 	public static final String[] DEFAULT_SUPPORTED_FILE_EXTENSIONS = {"java", "xml", "md", "txt", "json", "gradle", "html", "css", "js", "bat"};
+	public static final String LANGUAGE_SPECIFIER_XML_LOCATION = "/settings/Language.xml";
+	public static final String LANGUAGE_FOLDER_LOCATION = "/languages/";
+	public static final String LOOK_AND_FEEL_XML_LOCATION = "/settings/LookAndFeel.xml";
+	public static final String SUPPORTED_FILE_EXTENSIONS_XML_LOCATION = "/settings/SupportedFileExtensions.xml";
 }
