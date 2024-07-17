@@ -1,10 +1,10 @@
-@REM Gitter Version V.2.0.1
+@REM Gitter Version V.2.0.6
 @echo off
 cls
-set version=Gitter V.2.0.1
+set version=Gitter V.2.0.6
 echo  %version%
 echo ================
-SET mode=%1
+set mode=%1
 
 if not defined mode goto mnsel
 
@@ -25,6 +25,13 @@ SET branch=%3
 if not defined msg goto msgndel
 
 if not defined branch goto branchndel
+
+echo Are you sure you want to perform the following method with the specified parameters?
+echo Branch: %branch%
+echo Message: %msg%
+set /p answ=(y/n)
+
+if %answ%==n goto changel
 
 echo Pushing to %branch%
 
@@ -98,6 +105,24 @@ goto exitl
 :mnsel
 echo Mode not specified. Use --up, --dwn or --dwn-ovr.
 echo Use "help" or "?" arguments for help.
+goto exitl
+
+:changel
+set /p answ=Perform changes? (y/n)
+
+if not defined answ goto changel
+
+if %answ%==n goto exitl
+
+set /p branch=Branch:
+set /p message=Message:
+
+if not defined branch goto msgchangel
+
+:msgchangel
+git add .
+git commit -m %message%
+git push origin %3
 goto exitl
 
 :exitl
