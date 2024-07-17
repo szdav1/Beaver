@@ -115,14 +115,30 @@ if not defined answ goto changel
 if %answ%==n goto exitl
 
 set /p branch=Branch:
-set /p message=Message:
+set /p msg=Message:
 
 if not defined branch goto msgchangel
+
+if not defined msg goto branchchangel
+
+goto allchangel
 
 :msgchangel
 git add .
 git commit -m %message%
 git push origin %3
+goto exitl
+
+:branchchangel
+git add .
+git commit -m %2
+git push origin %branch%
+goto exitl
+
+:allchangel
+git add .
+git commit -m %msg%
+git push origin %branch%
 goto exitl
 
 :exitl
