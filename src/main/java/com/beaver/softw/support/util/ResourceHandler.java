@@ -21,19 +21,6 @@ public final class ResourceHandler {
 				.append(path)
 				.toString();
 		}
-//
-//		try {
-//			System.out.println(url.getFile());
-//			return url.getFile();
-//		}
-//		catch (Exception exc) {
-//			System.out.println(new StringBuilder("resources")
-//				.append(path)
-//				.toString());
-//			return new StringBuilder("resources")
-//				.append(path)
-//				.toString();
-//		}
 	}
 
 	public static String getTarget(final String path, final String fileName) {

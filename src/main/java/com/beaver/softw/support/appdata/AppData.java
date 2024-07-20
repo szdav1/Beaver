@@ -4,6 +4,7 @@ import com.beaver.softw.support.util.Util;
 
 public final class AppData {
 	public static final String CURRENT_LOOK_AND_FEEL = Util.getCurrentLookAndFeel();
+	// TODO: Remove JTattoo lafs before release
 	public static final String[] AVAILABLE_LOOK_AND_FEELS = {
 		"javax.swing.plaf.metal.MetalLookAndFeel",
 		"javax.swing.plaf.nimbus.NimbusLookAndFeel",
