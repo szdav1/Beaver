@@ -10,6 +10,8 @@ if not defined mode goto mnsel
 
 if %mode%==--up goto pushl
 
+if %mode%==--ups goto pushsl
+
 if %mode%==--dwn goto pulll
 
 if %mode%==--dwn-ovr goto pullhardl
@@ -32,6 +34,21 @@ echo Message: %msg%
 set /p answ=(y/n)
 
 if %answ%==n goto changel
+
+echo Pushing to %branch%
+
+git add .
+git commit -m %msg%
+git push origin %branch%
+goto exitl
+
+:pushsl
+SET msg=%2
+SET branch=%3
+
+if not defined msg goto msgndel
+
+if not defined branch goto branchndel
 
 echo Pushing to %branch%
 
