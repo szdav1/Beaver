@@ -20,6 +20,8 @@ if %mode%==? goto helpl
 
 if %mode%==help goto helpl
 
+goto mnsel
+
 :pushl
 SET msg=%2
 SET branch=%3

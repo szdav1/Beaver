@@ -7,6 +7,9 @@
     <Words user="Question">
         <ConfirmExitTitle>Exit</ConfirmExitTitle>
         <ConfirmExit>Exit application?</ConfirmExit>
+
+        <RestartTitle>Restart required</RestartTitle>
+        <RestartText>Restart now?</RestartText>
     </Words>
 
     <Words user="MenuBar">
