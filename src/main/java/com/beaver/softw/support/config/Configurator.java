@@ -5,13 +5,22 @@ import javax.swing.UIManager;
 import com.beaver.softw.app.view.dialogs.error.ErrorDialog;
 import com.beaver.softw.app.view.dialogs.error.ErrorDialogTitle;
 import com.beaver.softw.support.appdata.AppData;
-import com.beaver.softw.support.config.xml.LanguageReader;
-import com.beaver.softw.support.config.xml.LanguageSpecifierReader;
-import com.beaver.softw.support.config.xml.LookAndFeelReader;
-import com.beaver.softw.support.config.xml.SupportedFileExtensionsReader;
+import com.beaver.softw.support.config.xml.*;
 
 public final class Configurator {
+	public static Updater updater;
+
 	public static void configure(final String settingsFilePath) {
+//		javax.swing.plaf.metal.MetalLookAndFeel
+//		javax.swing.plaf.nimbus.NimbusLookAndFeel
+//		com.sun.java.swing.plaf.motif.MotifLookAndFeel
+//		com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+//		com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel
+//		com.jtattoo.plaf.hifi.HiFiLookAndFeel
+//		com.jtattoo.plaf.noire.NoireLookAndFeel
+//		com.jtattoo.plaf.acryl.AcrylLookAndFeel
+		updater = new Updater();
+
 		loadLookAndFeelConfiguration();
 		loadLanguageConfiguration();
 		loadSupportedFileExtensionsConfiguration();
@@ -62,6 +71,18 @@ public final class Configurator {
 		}
 		catch (Exception exc) {
 			ErrorDialog.displayWarning(ErrorDialogTitle.SUPPORTED_FILE_EXTENSIONS_WARNING, "Default supported file extensions are used.");
+		}
+	}
+
+	public static final class Updater {
+		private final LookAndFeelWriter lookAndFeelWriter;
+
+		public Updater() {
+			this.lookAndFeelWriter = new LookAndFeelWriter();
+		}
+
+		public void updateLookAndFeelConfiguration(final String data) {
+			this.lookAndFeelWriter.writeXML(data);
 		}
 	}
 }

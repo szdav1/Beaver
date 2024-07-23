@@ -13,6 +13,6 @@
         com.jtattoo.plaf.noire.NoireLookAndFeel
         com.jtattoo.plaf.acryl.AcrylLookAndFeel
         -->
-        <LookAndFeel>javax.swing.plaf.nimbus.NimbusLookAndFeel</LookAndFeel>
+        <LookAndFeel>com.jtattoo.plaf.noire.NoireLookAndFeel</LookAndFeel>
     </SelectedLookAndFeel>
 </LookAndFeel>

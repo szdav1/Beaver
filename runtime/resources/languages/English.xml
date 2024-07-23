@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Language>
+    <Words user="Error">
+        <CouldNotPerformAction>Could not perform requested action.</CouldNotPerformAction>
+    </Words>
+
+    <Words user="Question">
+        <ConfirmExitTitle>Exit</ConfirmExitTitle>
+        <ConfirmExit>Exit application?</ConfirmExit>
+    </Words>
+
+    <Words user="MenuBar">
+        <FileMenu>File</FileMenu>
+        <FileMenuOpen>Open</FileMenuOpen>
+        <FileMenuSave>Save</FileMenuSave>
+        <FileMenuSaveAs>Save As</FileMenuSaveAs>
+        <FileMenuExit>Exit</FileMenuExit>
+
+        <SettingsMenu>Settings</SettingsMenu>
+        <SettingsMenuAppearance>Appearance</SettingsMenuAppearance>
+        <SettingsMenuLanguage>Language</SettingsMenuLanguage>
+
+        <WindowMenu>Window</WindowMenu>
+        <WindowMenuResetWindow>Reset Window</WindowMenuResetWindow>
+    </Words>
+
+    <Words user="Sidebar">
+        <Title>Project Structure</Title>
+    </Words>
+
+    <Words user="Dialogs">
+        <ApplyButton>Apply</ApplyButton>
+
+        <AppearanceSettingsTitle>Appearance Settings</AppearanceSettingsTitle>
+        <AppearanceSettingsDescription>Select the desired Look and Feel</AppearanceSettingsDescription>
+        <AppearanceSettingsInformation>Note that changes will only apply after restart!</AppearanceSettingsInformation>
+
+    </Words>
+</Language>

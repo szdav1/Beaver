@@ -19,6 +19,11 @@ public final class WindowManager {
 		initialized = true;
 	}
 
+	public static void closeWindow() {
+		window.dispose();
+		System.exit(0);
+	}
+
 	public static void repaint() {
 		if (!initialized)
 			return;
@@ -35,7 +40,7 @@ public final class WindowManager {
 	}
 
 	public static void showExitConfirmationWindow() {
-		if (JOptionPane.showConfirmDialog(null, Language.get("Question.ConfirmExit"), Language.get("Question.ConfirmExitTitle"), JOptionPane.YES_NO_OPTION) == 0) {
+		if (JOptionPane.showConfirmDialog(null, Language.get("Question.ConfirmExit"), Language.get("Question.ConfirmExitTitle"), JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 			window.dispose();
 			System.exit(0);
 		}

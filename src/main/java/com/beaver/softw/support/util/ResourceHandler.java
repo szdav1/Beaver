@@ -22,18 +22,4 @@ public final class ResourceHandler {
 				.toString();
 		}
 	}
-
-	public static String getTarget(final String path, final String fileName) {
-		URL url = ResourceHandler.class.getResource(path);
-
-		if (url != null)
-			return new StringBuilder(url.getFile())
-				.append(fileName)
-				.toString();
-
-		return new StringBuilder("resources")
-			.append("/settings/")
-			.append(fileName)
-			.toString();
-	}
 }

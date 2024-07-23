@@ -11,17 +11,17 @@ import com.beaver.softw.support.config.Language;
 
 public final class AppearanceSettingsDialog extends AbstractDialog {
 	private final JLabel informationLabel;
-	private final JComboBox<String> appearanceComboBox;
+	private final JComboBox<String> lookAndFeelComboBox;
 	private final JButton applyButton;
 
 	public AppearanceSettingsDialog() {
 		super();
 
-		AppearanceSettingsDialogController controller = new AppearanceSettingsDialogController();
+		AppearanceSettingsDialogController controller = new AppearanceSettingsDialogController(this);
 
 		this.informationLabel = new JLabel(Language.get("Dialogs.AppearanceSettingsInformation"));
 		this.informationLabel.setIcon(UIManager.getIcon("OptionPane.warningIcon"));
-		this.appearanceComboBox = new JComboBox<>();
+		this.lookAndFeelComboBox = new JComboBox<>();
 
 		this.applyButton = new JButton(Language.get("Dialogs.ApplyButton"));
 		this.applyButton.addActionListener(controller);
@@ -35,16 +35,20 @@ public final class AppearanceSettingsDialog extends AbstractDialog {
 
 	private void addLookAndFeels() {
 		for (String lookAndFeel : AppData.AVAILABLE_LOOK_AND_FEELS) {
-			this.appearanceComboBox.addItem(lookAndFeel);
+			this.lookAndFeelComboBox.addItem(lookAndFeel);
 		}
 
-		this.appearanceComboBox.setSelectedItem(AppData.CURRENT_LOOK_AND_FEEL);
+		this.lookAndFeelComboBox.setSelectedItem(AppData.CURRENT_LOOK_AND_FEEL);
 	}
 
 	public AbstractDialog reset() {
-		this.appearanceComboBox.setSelectedItem(AppData.CURRENT_LOOK_AND_FEEL);
+		this.lookAndFeelComboBox.setSelectedItem(AppData.CURRENT_LOOK_AND_FEEL);
 
 		return this;
+	}
+
+	public String getSelectedLookAndFeel() {
+		return (String) this.lookAndFeelComboBox.getSelectedItem();
 	}
 
 	@Override
@@ -54,7 +58,7 @@ public final class AppearanceSettingsDialog extends AbstractDialog {
 		JPanel bottomPanel = new JPanel();
 
 		informationPanel.add(this.informationLabel);
-		contentPanel.add(this.appearanceComboBox);
+		contentPanel.add(this.lookAndFeelComboBox);
 		bottomPanel.add(this.applyButton);
 
 		this.add(informationPanel);

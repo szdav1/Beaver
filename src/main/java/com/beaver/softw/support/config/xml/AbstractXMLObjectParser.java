@@ -17,7 +17,7 @@ public abstract class AbstractXMLObjectParser {
 	protected final XMLReaderConfiguration configuration;
 	protected final List<XMLObject> xmlObjects;
 
-	public AbstractXMLObjectParser(XMLReaderConfiguration configuration) {
+	public AbstractXMLObjectParser(final XMLReaderConfiguration configuration) {
 		this.configuration = configuration;
 		this.xmlObjects = new ArrayList<>();
 	}

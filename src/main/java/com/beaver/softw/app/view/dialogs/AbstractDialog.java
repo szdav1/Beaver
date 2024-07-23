@@ -9,7 +9,6 @@ public abstract class AbstractDialog extends JDialog {
 		this.setSize(Dimensions.DIALOG_DIMENSION);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
-		this.setAlwaysOnTop(true);
 		this.setAutoRequestFocus(true);
 	}
 
