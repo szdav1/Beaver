@@ -1,9 +1,9 @@
-package com.beaver.softw.support;
+package com.beaver.softw.app.run;
 
-import com.beaver.softw.app.run.App;
 import com.beaver.softw.app.view.dialogs.error.ErrorDialog;
 import com.beaver.softw.app.view.dialogs.error.ErrorDialogTitle;
 import com.beaver.softw.app.view.window.WindowManager;
+import com.beaver.softw.support.appdata.AppData;
 
 public final class InstanceStarter {
 	public static void startNewAppInstance() {
@@ -13,7 +13,7 @@ public final class InstanceStarter {
 	public static void restartApp() {
 		try {
 			Runtime.getRuntime()
-				.exec(new String[] {"cmd", "/K", "Start javaw -jar Beaver-0.5-WORK-IN-PROGRESS-all.jar exit"});
+				.exec(new String[]{"cmd", "/K", String.format("Start javaw -jar %s exit", AppData.JAR_NAME)});
 			WindowManager.closeWindow();
 		}
 		catch (Exception exc) {

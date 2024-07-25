@@ -3,6 +3,8 @@ package com.beaver.softw.support.appdata;
 import com.beaver.softw.support.util.Util;
 
 public final class AppData {
+	public static final String APPLICATION_NAME = "Beaver-Tattoo_Extension";
+	public static final String JAR_NAME = "Beaver-Tattoo_Extension.jar";
 	public static final String CURRENT_LOOK_AND_FEEL = Util.getCurrentLookAndFeel();
 	// TODO: Remove JTattoo lafs before release
 	public static final String[] AVAILABLE_LOOK_AND_FEELS = {

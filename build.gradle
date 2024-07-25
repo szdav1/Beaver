@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.beaver.softw'
-version '0.5-WORK-IN-PROGRESS'
+version 'V.0.6.75-BASE-COMPLETE'
 
 repositories {
     flatDir {
@@ -37,4 +37,13 @@ jar {
                 'Main-Class': 'com.beaver.softw.app.run.Main'
         )
     }
+
+    archiveClassifier.set('BASE_COMPLETE')
+    archiveVersion.set('V.0.6.75')
+}
+
+shadowJar {
+    archiveBaseName.set('Beaver')
+    archiveClassifier.set('Tattoo_Extension')
+    archiveVersion.set('')
 }

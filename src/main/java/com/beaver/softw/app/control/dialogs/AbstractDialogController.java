@@ -2,7 +2,7 @@ package com.beaver.softw.app.control.dialogs;
 
 import java.awt.event.*;
 
-public abstract class AbstractDialogController implements ActionListener, MouseListener, WindowListener {
+public abstract class AbstractDialogController implements ActionListener, MouseListener, KeyListener, WindowListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	}
@@ -25,6 +25,18 @@ public abstract class AbstractDialogController implements ActionListener, MouseL
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
 	}
 
 	@Override

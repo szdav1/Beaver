@@ -6,6 +6,7 @@ import java.awt.event.WindowListener;
 import com.beaver.softw.app.view.window.WindowManager;
 
 public final class WindowController implements WindowListener {
+
 	@Override
 	public void windowOpened(WindowEvent e) {
 	}

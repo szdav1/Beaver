@@ -41,14 +41,17 @@ public final class AppearanceSettingsDialog extends AbstractDialog {
 		this.lookAndFeelComboBox.setSelectedItem(AppData.CURRENT_LOOK_AND_FEEL);
 	}
 
-	public AbstractDialog reset() {
-		this.lookAndFeelComboBox.setSelectedItem(AppData.CURRENT_LOOK_AND_FEEL);
-
-		return this;
-	}
-
 	public String getSelectedLookAndFeel() {
 		return (String) this.lookAndFeelComboBox.getSelectedItem();
+	}
+
+	@Override
+	public void reset() {
+		this.lookAndFeelComboBox.setSelectedItem(AppData.CURRENT_LOOK_AND_FEEL);
+	}
+
+	public void appear() {
+		super.display(this);
 	}
 
 	@Override

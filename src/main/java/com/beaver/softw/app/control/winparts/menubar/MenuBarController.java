@@ -29,7 +29,7 @@ public final class MenuBarController extends AbstractController {
 
 	private void handleSettingsMenuActions(final MenuItem menuItem) {
 		switch (menuItem.getItemIndex()) {
-			case 0 -> WindowManager.showAppearanceSettingsDialog();
+			case 0 -> ComponentCommunicationInterface.requestMethodInvocationOn("appearanceSettingsDialog", "appear");
 			case 1 -> System.out.println("Language");
 		}
 	}

@@ -2,6 +2,7 @@ package com.beaver.softw.app.view.window;
 
 import javax.swing.JOptionPane;
 
+import com.beaver.softw.app.view.dialogs.AbstractDialog;
 import com.beaver.softw.support.config.Language;
 
 public final class WindowManager {
@@ -51,18 +52,24 @@ public final class WindowManager {
 	}
 
 	public static void disableWindow() {
+		setStage(WindowStage.DISABLED);
 		window.setEnabled(false);
 	}
 
 	public static void enableWindow() {
+		setStage(WindowStage.NORMAL);
 		window.setEnabled(true);
 	}
 
-	public static void showAppearanceSettingsDialog() {
-		setStage(WindowStage.DISABLED);
-		disableWindow();
-		window.getAppearanceSettingsDialog()
-			.reset()
-			.setVisible(true);
+	public static void setOpenedDialog(final AbstractDialog dialog) {
+		setStage(WindowStage.DIALOG_OPENED);
+		window.setOpenedDialog(dialog);
+	}
+
+	public static void closeOpenedDialog() {
+		window.getOpenedDialog()
+				.dispose();
+		window.setOpenedDialog(null);
+		setStage(WindowStage.NORMAL);
 	}
 }
