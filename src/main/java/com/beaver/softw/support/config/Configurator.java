@@ -1,9 +1,12 @@
 package com.beaver.softw.support.config;
 
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
+import com.beaver.softw.app.run.InstanceStarter;
 import com.beaver.softw.app.view.dialogs.error.ErrorDialog;
 import com.beaver.softw.app.view.dialogs.error.ErrorDialogTitle;
+import com.beaver.softw.app.view.window.WindowManager;
 import com.beaver.softw.support.appdata.AppData;
 import com.beaver.softw.support.config.xml.*;
 
@@ -82,7 +85,24 @@ public final class Configurator {
 		}
 
 		public void updateLookAndFeelConfiguration(final String data) {
+			if (data.equals(AppData.CURRENT_LOOK_AND_FEEL)) {
+				WindowManager.closeOpenedDialog();
+				return;
+			}
+
 			this.lookAndFeelWriter.writeXML(data);
+
+			if (JOptionPane.showOptionDialog(
+				null,
+				Language.get("Question.RestartText"),
+				Language.get("Question.RestartTitle"),
+				JOptionPane.YES_NO_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null, null, null
+			) == JOptionPane.YES_OPTION)
+				InstanceStarter.restartApp();
+			else
+				WindowManager.closeOpenedDialog();
 		}
 	}
 }

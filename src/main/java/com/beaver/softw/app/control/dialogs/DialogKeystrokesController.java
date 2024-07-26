@@ -1,4 +1,4 @@
-package com.beaver.softw.app.control.dialogs.settings;
+package com.beaver.softw.app.control.dialogs;
 
 import java.awt.event.ActionEvent;
 
@@ -10,8 +10,8 @@ import com.beaver.softw.app.control.AbstractKeystrokesController;
 import com.beaver.softw.app.view.dialogs.AbstractDialog;
 import com.beaver.softw.app.view.window.WindowManager;
 
-public final class DialogKeystrokesController extends AbstractKeystrokesController {
-	private final AbstractDialog dialog;
+public class DialogKeystrokesController extends AbstractKeystrokesController {
+	protected final AbstractDialog dialog;
 
 	public DialogKeystrokesController(final AbstractDialog dialog) {
 		this.dialog = dialog;
@@ -28,8 +28,6 @@ public final class DialogKeystrokesController extends AbstractKeystrokesControll
 			.getActionMap()
 			.put(actionName, action);
 	}
-
-
 
 	private static final class EscapeKeyAction extends AbstractAction {
 		@Override

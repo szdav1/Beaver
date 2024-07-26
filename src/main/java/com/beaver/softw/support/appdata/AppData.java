@@ -6,6 +6,7 @@ public final class AppData {
 	public static final String APPLICATION_NAME = "Beaver-Tattoo_Extension";
 	public static final String JAR_NAME = "Beaver-Tattoo_Extension.jar";
 	public static final String CURRENT_LOOK_AND_FEEL = Util.getCurrentLookAndFeel();
+	public static final String[] WINDOWS_RESTART_COMMAND = {"cmd", "/K", String.format("javaw -jar %s", JAR_NAME)};
 	// TODO: Remove JTattoo lafs before release
 	public static final String[] AVAILABLE_LOOK_AND_FEELS = {
 		"javax.swing.plaf.metal.MetalLookAndFeel",

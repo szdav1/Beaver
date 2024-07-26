@@ -22,7 +22,7 @@ public final class ErrorDialog {
 			null,
 			title == ErrorDialogTitle.COMPONENT_COMMUNICATION_ERROR ?
 				Language.get("Error.CouldNotPerformAction") :
-				stringBuilder.toString(),
+				exception.getMessage(),
 			title.getTitle(),
 			JOptionPane.ERROR_MESSAGE
 		);

@@ -13,11 +13,11 @@ public final class InstanceStarter {
 	public static void restartApp() {
 		try {
 			Runtime.getRuntime()
-				.exec(new String[]{"cmd", "/K", String.format("Start javaw -jar %s exit", AppData.JAR_NAME)});
+				.exec(AppData.WINDOWS_RESTART_COMMAND);
 			WindowManager.closeWindow();
 		}
 		catch (Exception exc) {
-			ErrorDialog.displayError(ErrorDialogTitle.COMPONENT_COMMUNICATION_ERROR, exc);
+			ErrorDialog.displayError(ErrorDialogTitle.OS_ERROR, exc);
 		}
 	}
 }

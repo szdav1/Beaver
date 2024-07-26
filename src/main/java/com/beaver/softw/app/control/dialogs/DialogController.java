@@ -2,7 +2,6 @@ package com.beaver.softw.app.control.dialogs;
 
 import java.awt.event.WindowEvent;
 
-import com.beaver.softw.app.control.dialogs.settings.DialogKeystrokesController;
 import com.beaver.softw.app.view.dialogs.AbstractDialog;
 import com.beaver.softw.app.view.window.WindowManager;
 
