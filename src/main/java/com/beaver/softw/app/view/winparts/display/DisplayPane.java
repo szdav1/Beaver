@@ -29,6 +29,7 @@ public final class DisplayPane extends JSplitPane implements WindowPart {
 		this.setup();
 	}
 
+	@SuppressWarnings("unused")
 	public void openFileToTab(final String filePath) {
 		File file = new File(filePath);
 
