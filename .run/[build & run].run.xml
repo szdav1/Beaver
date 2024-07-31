@@ -3,7 +3,7 @@
     <option name="MAIN_CLASS_NAME" value="com.beaver.softw.app.run.Main" />
     <module name="Beaver.main" />
     <method v="2">
-      <option name="Gradle.BeforeRunTask" enabled="true" tasks="build" externalProjectPath="$PROJECT_DIR$" vmOptions="" scriptParameters="" />
+      <option name="Gradle.BeforeRunTask" enabled="false" tasks="build" externalProjectPath="$PROJECT_DIR$" vmOptions="" scriptParameters="" />
     </method>
   </configuration>
 </component>

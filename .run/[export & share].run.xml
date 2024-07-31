@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="[export]" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="[export &amp; share]" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -22,6 +22,7 @@
     <DebugAllEnabled>false</DebugAllEnabled>
     <method v="2">
       <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_sendToProduction" />
+      <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_share" />
     </method>
   </configuration>
 </component>
