@@ -17,7 +17,7 @@ public final class ResourceHandler {
 			return url.getFile();
 		}
 		catch (Exception exc) {
-			return new StringBuilder("resources")
+			return new StringBuilder("resources/main")
 				.append(path)
 				.toString();
 		}

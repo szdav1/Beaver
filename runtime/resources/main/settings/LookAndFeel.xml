@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LookAndFeel>
+    <SelectedLookAndFeel>
+        <!--
+        javax.swing.plaf.metal.MetalLookAndFeel
+        javax.swing.plaf.nimbus.NimbusLookAndFeel
+        com.sun.java.swing.plaf.motif.MotifLookAndFeel
+        com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+        com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel
+        -->
+        <!--
+        com.jtattoo.plaf.hifi.HiFiLookAndFeel
+        com.jtattoo.plaf.noire.NoireLookAndFeel
+        com.jtattoo.plaf.acryl.AcrylLookAndFeel
+        -->
+        <LookAndFeel>com.jtattoo.plaf.noire.NoireLookAndFeel</LookAndFeel>
+    </SelectedLookAndFeel>
+</LookAndFeel>
