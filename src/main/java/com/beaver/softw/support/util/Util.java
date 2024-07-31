@@ -6,7 +6,7 @@ public final class Util {
 	private Util() {
 	}
 
-	public static String getCurrentLookAndFeel() {
+	public static String getCurrentLookAndFeelName() {
 		return UIManager.getLookAndFeel()
 			.toString()
 			.strip()
