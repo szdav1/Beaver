@@ -90,7 +90,12 @@ public final class Configurator {
 				return;
 			}
 
-			this.lookAndFeelWriter.writeXML(data);
+			try {
+				this.lookAndFeelWriter.writeXML(data);
+			}
+			catch (Exception exc) {
+				ErrorDialog.displayError(ErrorDialogTitle.LOOK_AND_FEEL_ERROR, exc);
+			}
 
 			if (JOptionPane.showOptionDialog(
 				null,

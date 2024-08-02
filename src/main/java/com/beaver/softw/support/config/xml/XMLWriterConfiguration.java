@@ -1,11 +1,10 @@
 package com.beaver.softw.support.config.xml;
 
-import com.beaver.softw.support.appdata.AppData;
 import lombok.Getter;
 
 @Getter
 public enum XMLWriterConfiguration {
-	LOOK_AND_FEEL_WRITER("LookAndFeel", "SelectedLookAndFeel", "LookAndFeel", "resources/settings/LookAndFeel.xml");
+	LOOK_AND_FEEL_WRITER("LookAndFeel", "SelectedLookAndFeel", "LookAndFeel", "resources/main/settings/LookAndFeel.xml");
 
 	private final String xmlName;
 	private final String selectedElementName;
